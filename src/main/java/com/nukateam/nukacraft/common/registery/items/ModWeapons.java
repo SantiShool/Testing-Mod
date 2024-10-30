@@ -13,9 +13,11 @@ import com.nukateam.nukacraft.common.foundation.entities.grenades.*;
 import com.nukateam.nukacraft.common.foundation.entities.misc.ToxicFloaterGrenadeEntity;
 import com.nukateam.nukacraft.common.foundation.items.frame.FusionCoreItem;
 import com.nukateam.nukacraft.common.foundation.items.guns.*;
+import com.nukateam.nukacraft.common.foundation.items.misc.SimpleDiggerItem;
 import com.nukateam.nukacraft.common.foundation.items.misc.SimpleMeleeWeapon;
 import com.nukateam.nukacraft.common.foundation.items.misc.SpearItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -109,15 +111,24 @@ public class ModWeapons {
                     new Item.Properties()));
 
     public static final RegistryObject<Item> HATCHET = ITEMS.register("hatchet",
-            () -> new SimpleMeleeWeapon(ModTiers.LOWSTEEL, 1, 0,
+            () -> new SimpleDiggerItem(ModTiers.LOWSTEEL, 1, 0,
                     new Item.Properties()));
 
     public static final RegistryObject<Item> HANDMADE_SPEAR = ITEMS.register("handmade_spear",
             () -> new SpearItem(Tiers.IRON, 6, -3.2F,(new Item.Properties())));
 
 
+
     public static final RegistryObject<Item> FIRE_AXE = ITEMS.register("fireaxe",
-            () -> new SimpleMeleeWeapon(ModTiers.LOWSTEEL, 2, -3,
+            () -> new SimpleDiggerItem(ModTiers.LOWSTEEL, 2, -3,
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> TIRE_AXE = ITEMS.register("tire_axe",
+            () -> new SimpleDiggerItem(ModTiers.LOWSTEEL, 2, -3,
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> BAT_AXE = ITEMS.register("bat_axe",
+            () -> new SimpleDiggerItem(ModTiers.LOWSTEEL, 2, -3,
                     new Item.Properties()));
 
     public static final RegistryObject<Item> MACHETE = ITEMS.register("machete",

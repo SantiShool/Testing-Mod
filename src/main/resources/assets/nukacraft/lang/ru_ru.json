@@ -729,6 +729,9 @@
   "item.nukacraft.steelbowl": "Стальная Миска",
   "item.nukacraft.steelnugget": "Кусочек Стали",
   "item.nukacraft.stimpak": "Стимулятор",
+  "item.nukacraft.tire_axe": "Самодельный Топор",
+  "item.nukacraft.bat_axe": "Бейсбольный Топор",
+  "item.nukacraft.dewdrop_tear": "Капля Росянки",
   "item.nukacraft.stun_grenade": "Оглушающая граната",
   "item.nukacraft.super_stimpak": "Супер Стимулятор",
   "item.nukacraft.sweet_ash_tea": "Сладкий Чай с Пепельной Розой",
@@ -859,7 +862,7 @@
 
 
   "skin.default" : "§4§oРжавая",
-  "skin.clean" : "§7§oЧистая",
+  "skin.clear" : "§7§oЧистая",
   "skin.black" : "§b§oЧёрная Краска",
   "skin.brown" : "§b§oКоричневая Краска",
   "skin.cyan" : "§b§oБирюзовая Краска",

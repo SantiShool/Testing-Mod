@@ -5,8 +5,17 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "nukacraft:adhesive",
+          "type": "minecraft:loot_table",
+          "name": "nukacraft:chests/material_common"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "min": 1,
+            "max": 2
+          },
           "conditions": [
             {
               "condition": "minecraft:random_chance",
@@ -20,16 +29,19 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "nukacraft:cap",
+          "type": "minecraft:loot_table",
+          "name": "nukacraft:chests/material_rare",
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 6,
+              "count": {
+                "min": 1,
+                "max": 2
+              },
               "conditions": [
                 {
                   "condition": "minecraft:random_chance",
-                  "chance": 0.2
+                  "chance": 0.1
                 }
               ]
             }
@@ -37,142 +49,9 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.3
+              "chance": 0.1
             }
           ]
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.2
-        }
-      ]
-    },
-    {
-      "rolls": 2,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "nukacraft:prewarmoney",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 3,
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.5
-                }
-              ]
-            },
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "nukacraft:aluminugget",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 3,
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.3
-                }
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "nukacraft:screws",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 3,
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.2
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.4
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "nukacraft:textile"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.15
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "nukacraft:ceramic",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 2,
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.23
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.2
         }
       ]
     }

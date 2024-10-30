@@ -348,6 +348,9 @@ public class ModItems {
     public static final RegistryObject<Item> RAWSCARFLUX = ITEMS.register("undscarletflux",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     @DataGen
+    public static final RegistryObject<Item> DEWDROP_TEAR = ITEMS.register("dewdrop_tear",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    @DataGen
     public static final RegistryObject<Item> SCARFLUX = ITEMS.register("scarletflux",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     @DataGen

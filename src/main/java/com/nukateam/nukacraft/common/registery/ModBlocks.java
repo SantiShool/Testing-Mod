@@ -53,19 +53,19 @@ public class ModBlocks {
                     })));
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> GEAR_DOOR = registerBlockWithoutItem("geardoor",
-            () -> new GearDoorBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE).strength(30f).explosionResistance(30f).noOcclusion()));
+            () -> new GearDoorBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE).strength(30f).explosionResistance(30f).noCollission().noOcclusion()));
 
     public static final RegistryObject<Block> DOOR_TERMINAL = registerBlock("door_terminal", () -> new DoorTerminalBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(1)));
 
     public static final RegistryObject<Block> PA_STATION = registerBlock("pa_station_block",
-            () -> new PowerArmorStation(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE).strength(30f).noCollission().explosionResistance(30f).noOcclusion()));
+            () -> new PowerArmorStation(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE).strength(2f).noCollission().explosionResistance(2f).noOcclusion()));
 
 
 
 //    @DataGen(type = ResourceType.BLOCK)
 
     public static final RegistryObject<Block> OPENGEAR = registerBlockWithoutItem("opengear",
-            () -> new OpenGearBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE).strength(30f).explosionResistance(30f).noOcclusion()));
+            () -> new OpenGearBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE).strength(30f).noCollission().explosionResistance(30f).noOcclusion()));
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> HALFBARRIER = registerBlockWithoutItem("half_barrier",
             () -> new HalfBarrier(BlockBehaviour.Properties.copy(Blocks.BARRIER).strength(-1f).explosionResistance(3600000.8F)/*.noDrops()*/.noOcclusion()));

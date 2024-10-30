@@ -411,6 +411,10 @@
   "item.nukacraft.dogwood": "Dogwood",
   "item.nukacraft.electronum": "Electrite",
   "item.nukacraft.emcp": "Empty Cup",
+  "item.nukacraft.tire_axe": "Tire Axe",
+  "item.nukacraft.bat_axe": "Baseball Axe",
+  "item.nukacraft.dewdrop_tear": "Dewdrop",
+
 
   "item.nukacraft.bucket_black": "Black Paint",
   "item.nukacraft.bucket_brown": "Brown Paint",
@@ -879,7 +883,7 @@
   "painting.nukacraft.sugar_bomb_promo.title": "Sugar Bombs Promo",
 
   "skin.default" : "§4§oRusty",
-  "skin.clean" : "§7§oClean",
+  "skin.clear" : "§7§oClear",
   "skin.black" : "§b§oBlack Paint",
   "skin.brown" : "§b§oBrown Paint",
   "skin.cyan" : "§b§oCyan Paint",

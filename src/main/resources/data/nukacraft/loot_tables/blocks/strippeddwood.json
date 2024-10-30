@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nukacraft:dwoodlog",
+          "name": "nukacraft:strippeddwood",
           "weight": 1,
           "functions": [
             {

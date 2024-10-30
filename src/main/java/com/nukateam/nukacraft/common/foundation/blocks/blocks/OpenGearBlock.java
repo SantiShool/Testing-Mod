@@ -133,9 +133,10 @@ public class OpenGearBlock extends BaseEntityBlock {
 
     public void doorOpenInteraction(Player pPlayer, BlockState pState, Level pLevel, BlockPos pos) {
 
-        fillFrame(ModBlocks.FILLERBARRIER.get().defaultBlockState(), pLevel, pState, pos.getX(), pos.getY(), pos.getZ());
-        pLevel.playSound(pPlayer, pos, ModSounds.VAULT_DOOR_INTERACT.get(), SoundSource.BLOCKS, 0.2f, 1);
+
         if (PipBoyUtils.hasPipboy()) {
+            fillFrame(ModBlocks.FILLERBARRIER.get().defaultBlockState(), pLevel, pState, pos.getX(), pos.getY(), pos.getZ());
+            pLevel.playSound(pPlayer, pos, ModSounds.VAULT_DOOR_INTERACT.get(), SoundSource.BLOCKS, 0.2f, 1);
             var newState = ModBlocks.GEAR_DOOR.get().defaultBlockState();
             for (var entry : pState.getValues().entrySet()) {
                 Property property = newState

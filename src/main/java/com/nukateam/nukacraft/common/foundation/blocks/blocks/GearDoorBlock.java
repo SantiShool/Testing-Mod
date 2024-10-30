@@ -98,7 +98,7 @@ public class GearDoorBlock extends BaseEntityBlock {
             case WEST -> shapes.add(box(0, 0, 0, 16, 64, 64));
             default -> shapes.add(box(0, 0, 0, 64, 64, 16));
         }
-        //shapes.add(box(-48, 0, 0, 16, 64, 16));
+        //shapes.add(box(-16, 0, 0, 16, 16, 16));
         VoxelShape shape = VoxelShapeHelper.combineAll(shapes);
         SHAPES.put(pState, shape);
         return shape;
