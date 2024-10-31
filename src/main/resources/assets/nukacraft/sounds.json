@@ -101,7 +101,9 @@
    "item.military_flamer.reload":                  { "subtitle": "subtitle.nukacraft.reload",           "sounds": [{ "name": "nukacraft:item/military_flamer/reload" }]},
 
    "entity.assaultron.fire":                  { "subtitle": "subtitle.nukacraft.fire",           "sounds": [{ "name": "nukacraft:entity/assaultron/fire" }]},
-
+   "item.broadsider.fire":                  { "subtitle": "subtitle.nukacraft.fire",           "sounds": [{ "name": "nukacraft:item/broadsider/fire" }]},
+   "item.broadsider.reload":                  { "subtitle": "subtitle.nukacraft.reload",           "sounds": [{ "name": "nukacraft:item/broadsider/reload" }]},
+   "item.broadsider.cock":                  { "subtitle": "subtitle.nukacraft.cock",           "sounds": [{ "name": "nukacraft:item/broadsider/cock" }]},
 
    "item.powdergun.fire":                  { "subtitle": "subtitle.nukacraft.fire",           "sounds": [{ "name": "nukacraft:item/powdergun/fire" }]},
    "item.powdergun.reload":                { "subtitle": "subtitle.nukacraft.reload",         "sounds": [{ "name": "nukacraft:item/powdergun/reload" }]},

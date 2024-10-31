@@ -159,6 +159,7 @@ public class ModWeapons {
     public static final RegistryObject<GunItem> PIPE_REVOLVER = registerGun("piperevolver");
     public static final RegistryObject<GunItem> FATMAN = registerGun("fatman");
     public static final RegistryObject<GunItem> MINIGUN = registerGun("minigun");
+    public static final RegistryObject<GunItem> BROADSIDER = registerGun("broadsider");
     public static final RegistryObject<GunItem> GATLING_LASER = registerGun("gatling_laser");
     public static final RegistryObject<GunItem> POWDERGUN = registerGun("powdergun");
     public static final RegistryObject<GunItem> SHOTGUN = registerGun("shotgun");
@@ -239,6 +240,10 @@ public class ModWeapons {
     public static final RegistryObject<Item> ROUND38_PIERCING = registerAmmo("round38_piercing");
     @DataGen
     public static final RegistryObject<Item> STEEL_BALLS = registerAmmo("steel_ball");
+    @DataGen
+    public static final RegistryObject<Item> CANNONBALL = registerAmmo("cannonball");
+    @DataGen
+    public static final RegistryObject<Item> STEEL_ROUND = registerAmmo("steel_round");
     @DataGen
     public static final RegistryObject<Item> ROUND45 = registerAmmo("round45");
     @DataGen

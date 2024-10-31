@@ -39,6 +39,8 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import static com.jetug.chassis_core.common.foundation.item.StackUtils.getVariant;
+
 public class PipBoyItem extends Item implements DynamicGeoItem {
     public static final String ATLAS_ID = "atlasID";
     public static final String SCREEN = "screen";
@@ -99,6 +101,7 @@ public class PipBoyItem extends Item implements DynamicGeoItem {
     @Override
     public void appendHoverText(ItemStack item, @Nullable Level level, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(item, level, list, flag);
+        var variant = getVariant(item);
 //        if (item.getOrCreateTag().getString(COLOR).equals("")) {
 //            list.add(Component.translatable("pipboy.nukacraft.screencolor").append(Component.translatable("color.display.green")));
 //        } else {
@@ -107,6 +110,7 @@ public class PipBoyItem extends Item implements DynamicGeoItem {
         if(Ntgl.isDebugging()) {
             list.add(Component.translatable("pipboy.nukacraft.handselect"));
             list.add(Component.translatable("pipboy.nukacraft.clicks"));
+            list.add(Component.translatable("skin." + variant));
         }
     }
 

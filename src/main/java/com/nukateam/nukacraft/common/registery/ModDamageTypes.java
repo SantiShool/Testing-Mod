@@ -30,10 +30,7 @@ public class ModDamageTypes {
         public static class UltraciteDamageSource extends DamageSource {
             private static final String[] msgSuffix = {
                     "nukacraft.death.killed",
-                    "nukacraft.death.eliminated",
-                    "nukacraft.death.executed",
-                    "nukacraft.death.annihilated",
-                    "nukacraft.death.decimated"
+                    "nukacraft.death.eliminated"
             };
 
             public UltraciteDamageSource(Holder<DamageType> pType, Entity pDirectEntity, Entity pCausingEntity) {

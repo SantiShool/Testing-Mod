@@ -22,7 +22,7 @@ public class PaintjobItem extends Item {
     @Override
     public boolean overrideStackedOnOther(ItemStack pStack, Slot pSlot, ClickAction pAction, Player pPlayer) {
         ItemStack slotItem = pSlot.getItem();
-        boolean isPaintable = (slotItem.getItem() instanceof ArmorPart || slotItem.getItem() instanceof GunItem);
+        boolean isPaintable = (slotItem.getItem() instanceof ArmorPart || slotItem.getItem() instanceof GunItem || slotItem.getItem() instanceof PipBoyItem);
         if (pAction == ClickAction.SECONDARY) {
 
             if (isPaintable && (Objects.equals(StackUtils.getVariant(slotItem), "clean"))) {

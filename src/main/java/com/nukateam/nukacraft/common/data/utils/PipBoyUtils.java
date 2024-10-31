@@ -85,8 +85,8 @@ public class PipBoyUtils {
     public static ResourceLocation getPipboySkin(Player player) {
         var slot = getPipboyStack(player);
         if (slot.getItem() instanceof PipBoyItem pipBoyItem) {
-            return nukaResource("textures/screens/" + pipBoyItem.getSkin() + "_pipboy.png");
+            return nukaResource("textures/screens/default_pipboy.png");
         }
-        return nukaResource("textures/screens/default_pipboy.png");
+        return nukaResource("textures/screens/pipboy2000_default.png");
     }
 }

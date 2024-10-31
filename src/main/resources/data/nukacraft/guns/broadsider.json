@@ -1,0 +1,40 @@
+{
+  "general": {
+    "rate": 10,
+    "gripType": "ntgl:mini_gun",
+    "category": "heavy",
+    "maxAmmo": 1,
+    "reloadTime": 120,
+    "recoilAngle": 0.0,
+    "alwaysSpread": true,
+    "spread": 8.0,
+    "damage": 5.0,
+    "ammo": [
+      "nukacraft:steel_ball"
+    ]
+  },
+  "sounds": {
+    "fire": "nukacraft:item.broadsider.fire",
+    "reload": "nukacraft:item.broadsider.reload",
+    "cock": "nukacraft:item.broadsider.cock"
+  },
+  "textures": {
+    "default" : "nukacraft:broadsider_default",
+    "blue"    : "nukacraft:broadsider_blue",
+    "light_blue"    : "nukacraft:broadsider_light_blue",
+    "black"   : "nukacraft:broadsider_black",
+    "brown"   : "nukacraft:broadsider_brown",
+    "gray"    : "nukacraft:broadsider_gray",
+    "light_gray"    : "nukacraft:broadsider_light_gray",
+    "cyan"    : "nukacraft:broadsider_cyan",
+    "green"   : "nukacraft:broadsider_green",
+    "orange"   : "nukacraft:broadsider_orange",
+    "yellow"   : "nukacraft:broadsider_yellow",
+    "red"   : "nukacraft:broadsider_red",
+    "purple"   : "nukacraft:broadsider_purple",
+    "white"   : "nukacraft:broadsider_white",
+    "magenta"   : "nukacraft:broadsider_magenta",
+    "lime"   : "nukacraft:broadsider_lime",
+    "pink"    : "nukacraft:broadsider_pink",
+    "clean"    : "nukacraft:broadsider_clean"
+  }}

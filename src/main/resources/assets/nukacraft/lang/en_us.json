@@ -6,8 +6,8 @@
   "itemGroup.nuka_blocks": "Nukacraft: Building Blocks",
 
 
-
-
+  "death.attack.nukacraft.death.killed": "%1$s has dissolved into Ultracite",
+  "death.attack.nukacraft.death.eliminated": "%1$s got to know the Ultracite better",
 
 
 
@@ -160,7 +160,6 @@
 
   "item.nukacraft.powdergun": "Black Powder Rifle",
   "item.nukacraft.steel_ball": ".50 Balls",
-  "death.attack.ultracite_step": "%1$s has dissolved into Ultracite",
   "item.nukacraft.weapon_parts": "Weapon Parts",
   "item.nukacraft.raw_saturnite": "Raw Saturnite",
   "item.nukacraft.unc_weapon_parts": "§aRare Weapon Parts",
@@ -883,7 +882,7 @@
   "painting.nukacraft.sugar_bomb_promo.title": "Sugar Bombs Promo",
 
   "skin.default" : "§4§oRusty",
-  "skin.clear" : "§7§oClear",
+  "skin.clean" : "§7§oClean",
   "skin.black" : "§b§oBlack Paint",
   "skin.brown" : "§b§oBrown Paint",
   "skin.cyan" : "§b§oCyan Paint",
