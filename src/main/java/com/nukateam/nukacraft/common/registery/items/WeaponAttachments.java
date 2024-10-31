@@ -193,7 +193,7 @@ public class WeaponAttachments {
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> GATLING_LASER_BEAM_SPLITTER = ITEMS.register("gatling_laser_beam_splitter",
-            () -> new UnderBarrelItem(UnderBarrel.create(GunModifiers.REDUCED_KICKING_LVL1), new Item.Properties().stacksTo(1)));
+            () -> new UnderBarrelItem(UnderBarrel.create(GunModifiers.SPLITTER), new Item.Properties().stacksTo(1)));
 
 
     //@DataGen(path = "attachments")

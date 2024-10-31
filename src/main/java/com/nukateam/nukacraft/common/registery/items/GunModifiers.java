@@ -197,12 +197,22 @@ public class GunModifiers {
     };
 
 
-
-
     public static final IGunModifier REDUCED_KICKING_LVL1 = new IGunModifier() {
         @Override
         public float kickModifier() {
             return 0.3F;
+        }
+    };
+
+    public static final IGunModifier SPLITTER = new IGunModifier() {
+        @Override
+        public int modifyProjectileAmount(int amount) {
+            return amount + 6;
+        }
+
+        @Override
+        public float modifyProjectileSpread(float spread) {
+            return spread + 10.0f;
         }
     };
 
