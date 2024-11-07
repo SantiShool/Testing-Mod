@@ -4,6 +4,7 @@ import com.nukateam.ntgl.common.foundation.block.WorkbenchBlock;
 import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.data.annotation.DataGen;
 import com.nukateam.nukacraft.common.data.enums.ResourceType;
+import com.nukateam.nukacraft.common.foundation.blocks.SlagSludgeBlock;
 import com.nukateam.nukacraft.common.foundation.blocks.blocks.PipeBlock;
 import com.nukateam.nukacraft.common.foundation.blocks.blocks.*;
 import com.nukateam.nukacraft.common.foundation.blocks.plants.*;
@@ -244,9 +245,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> ACID_DIRT = registerBlock("acid_dirt",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.GRASS)
                     .strength(0.2f)));
-    @DataGen(type = ResourceType.BLOCK)
+    //  @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> ASHDIRT = registerBlock("ashdirt",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.GRASS)
+            () -> new SlagSludgeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).isViewBlocking((blockState, blockGetter, blockPos) -> {return (int) blockState.getValue(SlagSludgeBlock.LAYERS) >= 8;}).sound(SoundType.GRASS)
                     .strength(0.2f)));
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> SCORCHED = registerBlock("scorched_earth",

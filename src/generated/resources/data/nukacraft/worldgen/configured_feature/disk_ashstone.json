@@ -2,7 +2,10 @@
   "type": "minecraft:forest_rock",
   "config": {
     "state": {
-      "Name": "nukacraft:ash_stone"
+      "Name": "nukacraft:ash_stone",
+      "Properties": {
+        "layers": "1"
+      }
     }
   }
 }

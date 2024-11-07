@@ -56,6 +56,7 @@ public class SetupEvents {
     @SubscribeEvent()
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(MININUKE.get(), MiniNukeRenderer::new);
+        event.registerEntityRenderer(CANNONBALL.get(), CannonBallRenderer::new);
         event.registerEntityRenderer(BASEBALL_GRENADE_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(COCKTAIL_MOLOTOV_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(MOLOTOV_COLA_ENTITY.get(), ThrowableGrenadeRenderer::new);

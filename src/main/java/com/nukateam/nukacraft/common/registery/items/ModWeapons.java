@@ -240,7 +240,7 @@ public class ModWeapons {
     public static final RegistryObject<Item> ROUND38_PIERCING = registerAmmo("round38_piercing");
     @DataGen
     public static final RegistryObject<Item> STEEL_BALLS = registerAmmo("steel_ball");
-    @DataGen
+    //@DataGen
     public static final RegistryObject<Item> CANNONBALL = registerAmmo("cannonball");
     @DataGen
     public static final RegistryObject<Item> STEEL_ROUND = registerAmmo("steel_round");

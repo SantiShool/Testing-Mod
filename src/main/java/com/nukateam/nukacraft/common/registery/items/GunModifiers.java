@@ -158,6 +158,13 @@ public class GunModifiers {
         }
     };
 
+    public static final IGunModifier BROADSIDER_MAG = new IGunModifier() {
+        @Override
+        public int modifyMaxAmmo(int maxAmmo) {
+            return (int) (maxAmmo * 3);
+        }
+    };
+
     public static final IGunModifier HUGE_MAG = new IGunModifier() {
         @Override
         public int modifyMaxAmmo(int maxAmmo) {

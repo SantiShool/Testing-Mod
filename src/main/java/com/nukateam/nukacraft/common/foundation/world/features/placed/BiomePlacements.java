@@ -26,6 +26,7 @@ public class BiomePlacements {
                         features.getOrThrow(BiomeFeatures.DISK_ASHSTONE),
                         ImmutableList.of(
                                 CountPlacement.of(1),
+                                RarityFilter.onAverageOnceEvery(4),
                                 InSquarePlacement.spread(),
                                 PlacementUtils.HEIGHTMAP,
                                 BiomeFilter.biome())
@@ -35,7 +36,7 @@ public class BiomePlacements {
         context.register(DISK_ASHDIRT, new PlacedFeature(
                         features.getOrThrow(BiomeFeatures.DISK_ASHDIRT),
                         ImmutableList.of(
-                                CountPlacement.of(3),
+                                CountPlacement.of(4),
                                 InSquarePlacement.spread(),
                                 PlacementUtils.HEIGHTMAP,
                                 BiomeFilter.biome()

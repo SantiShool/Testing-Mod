@@ -338,6 +338,14 @@ public class WeaponAttachments {
             () -> new BarrelItem(Barrel.create(3.0F, GunModifiers.EXTEND_KICKING_LVL3, GunModifiers.EXTEND_RECOIL_LVL2,GunModifiers.EXTEND_DAMAGE_lvl3), new Item.Properties().stacksTo(1)));
 
 
+
+
+    public static final RegistryObject<Item> BROADSIDER_MAGAZINE = ITEMS.register("broadsider_magazine",
+            () -> new MagazineItem(Magazine.create(3, GunModifiers.BROADSIDER_MAG), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROADSIDER_BARREL = ITEMS.register("broadsider_barrel",
+            () -> new BarrelItem(Barrel.create(0F, GunModifiers.EXTEND_KICKING_LVL3,GunModifiers.EXTEND_DAMAGE_lvl3), new Item.Properties().stacksTo(1)));
+
+
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> STOCK_SHIELD = ITEMS.register("stock_shield",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_KICKING_LVL1), new Item.Properties().stacksTo(1)));

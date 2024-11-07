@@ -404,7 +404,13 @@
 
   "item.nukacraft.stock_shield": "Тяжелое Оружие: Баллистический Щит",
 
+  "item.nukacraft.broadsider_barrel": "Залп: Расширенный Ствол",
+  "item.nukacraft.broadsider_magazine": "Залп: Магазин",
+
+  "item.nukacraft.broadsider": "Залп",
+  "item.nukacraft.steel_round": "Стальной Шарик",
   "item.nukacraft.repair_kit": "Ремонтный Набор",
+  "item.nukacraft.cannonball": "Пушечное Ядро",
   "item.nukacraft.elite_repair_kit": "Супер Ремонтный Набор",
   "item.nukacraft.dynamite_stick": "Шашка Динамита",
   "item.nukacraft.grenade_mirv": "Высокомощная Граната",

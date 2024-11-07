@@ -8,9 +8,9 @@
     "recoilAngle": 0.0,
     "alwaysSpread": true,
     "spread": 8.0,
-    "damage": 5.0,
+    "damage": 15.0,
     "ammo": [
-      "nukacraft:steel_ball"
+      "nukacraft:cannonball"
     ]
   },
   "sounds": {
@@ -37,4 +37,26 @@
     "lime"   : "nukacraft:broadsider_lime",
     "pink"    : "nukacraft:broadsider_pink",
     "clean"    : "nukacraft:broadsider_clean"
+  },
+  "modules": {
+    "attachments": {
+      "ntgl:barrel": [
+        {
+          "name": "barrel_1",
+          "item": "nukacraft:broadsider_barrel"
+        }
+      ],
+      "ntgl:stock": [
+        {
+          "name": "grip_1",
+          "item": "nukacraft:stock_shield"
+        }
+      ],
+      "ntgl:magazine": [
+        {
+          "name": "magazine_1",
+          "item": "nukacraft:broadsider_magazine"
+        }
+      ]
+    }
   }}

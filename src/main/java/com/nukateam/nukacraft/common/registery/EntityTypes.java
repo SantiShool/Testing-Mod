@@ -82,7 +82,7 @@ public class EntityTypes {
 //                    .updateInterval(Integer.MAX_VALUE));
 
     public static final RegistryObject<EntityType<MiniNukeEntity>> MININUKE = registerBasic("mini_nuke", MiniNukeEntity::new);
-
+    public static final RegistryObject<EntityType<CannonBallEntity>> CANNONBALL = registerBasic("cannon_ball", CannonBallEntity::new);
     public static final RegistryObject<EntityType<PowerArmorFrame>> POWER_ARMOR_FRAME =
             registerEntity("power_armor_frame", Builder
                     .of(PowerArmorFrame::new, MobCategory.MISC)

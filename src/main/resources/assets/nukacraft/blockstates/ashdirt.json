@@ -1,5 +1,28 @@
 {
   "variants": {
-    "": { "model":  "nukacraft:block/ashdirt"}
+    "layers=1": {
+      "model": "nukacraft:block/ashdirt_height2"
+    },
+    "layers=2": {
+      "model": "nukacraft:block/ashdirt_height4"
+    },
+    "layers=3": {
+      "model": "nukacraft:block/ashdirt_height6"
+    },
+    "layers=4": {
+      "model": "nukacraft:block/ashdirt_height8"
+    },
+    "layers=5": {
+      "model": "nukacraft:block/ashdirt_height10"
+    },
+    "layers=6": {
+      "model": "nukacraft:block/ashdirt_height12"
+    },
+    "layers=7": {
+      "model": "nukacraft:block/ashdirt_height14"
+    },
+    "layers=8": {
+      "model": "nukacraft:block/ashdirt_block"
+    }
   }
 }

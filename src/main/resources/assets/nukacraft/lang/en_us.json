@@ -102,7 +102,12 @@
 
   "item.nukacraft.stock_shield": "Heavy Weapons: Ballistic Shield",
 
+  "item.nukacraft.broadsider_barrel": "Broadsider: Extended Barrel",
+  "item.nukacraft.broadsider_magazine": "Broadsider: Extended Magazine",
 
+  "item.nukacraft.broadsider": "Broadsider",
+  "item.nukacraft.steel_round": "Steel Ball",
+  "item.nukacraft.cannonball": "Cannon Ball",
   "item.nukacraft.repair_kit": "Repair Kit",
   "item.nukacraft.elite_repair_kit": "Super Repair Kit",
   "item.nukacraft.acid": "Acid",

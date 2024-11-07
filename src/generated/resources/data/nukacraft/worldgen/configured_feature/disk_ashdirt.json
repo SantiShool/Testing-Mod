@@ -1,19 +1,22 @@
 {
   "type": "minecraft:disk",
   "config": {
-    "half_height": 4,
+    "half_height": 2,
     "radius": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 5,
-        "min_inclusive": 2
+        "max_inclusive": 2,
+        "min_inclusive": 1
       }
     },
     "state_provider": {
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:mud"
+          "Name": "nukacraft:ashdirt",
+          "Properties": {
+            "layers": "8"
+          }
         }
       },
       "rules": [
@@ -30,7 +33,10 @@
           "then": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "nukacraft:ashdirt"
+              "Name": "nukacraft:ashdirt",
+              "Properties": {
+                "layers": "8"
+              }
             }
           }
         }
