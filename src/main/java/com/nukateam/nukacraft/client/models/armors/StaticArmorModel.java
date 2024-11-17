@@ -1,7 +1,6 @@
 package com.nukateam.nukacraft.client.models.armors;
 
-
-import com.nukateam.example.common.data.interfaces.IResourceProvider;
+import com.nukateam.geo.interfaces.IResourceProvider;
 import com.nukateam.nukacraft.client.models.IGlowingModel;
 import mod.azure.azurelib.core.animatable.GeoAnimatable;
 import mod.azure.azurelib.model.GeoModel;

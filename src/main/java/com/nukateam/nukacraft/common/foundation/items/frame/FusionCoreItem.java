@@ -2,8 +2,8 @@ package com.nukateam.nukacraft.common.foundation.items.frame;
 
 import com.jetug.chassis_core.common.foundation.item.ChassisEquipment;
 import com.nukateam.ntgl.common.base.NetworkManager;
-import com.nukateam.ntgl.common.base.config.Ammo;
 import com.nukateam.ntgl.common.foundation.item.interfaces.IAmmo;
+import com.nukateam.ntgl.common.data.config.Ammo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

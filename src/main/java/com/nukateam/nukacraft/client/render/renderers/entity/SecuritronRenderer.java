@@ -2,7 +2,6 @@ package com.nukateam.nukacraft.client.render.renderers.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.nukateam.ntgl.client.render.renderers.DynamicGunRenderer;
 import com.nukateam.nukacraft.client.models.entity.*;
 import com.nukateam.nukacraft.client.render.layers.SecuritronFaceLayer;
 import com.nukateam.nukacraft.common.foundation.entities.mobs.Securitron;

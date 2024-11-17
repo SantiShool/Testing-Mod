@@ -1,6 +1,6 @@
 package com.nukateam.nukacraft.client.models.items;
 
-import com.nukateam.example.common.data.interfaces.IResourceProvider;
+import com.nukateam.geo.interfaces.IResourceProvider;
 import com.nukateam.ntgl.client.animators.GunAnimator;
 import com.nukateam.ntgl.client.model.IGlowingModel;
 import mod.azure.azurelib.core.animatable.GeoAnimatable;

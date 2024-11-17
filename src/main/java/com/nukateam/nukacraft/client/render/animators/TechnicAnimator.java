@@ -1,6 +1,6 @@
 package com.nukateam.nukacraft.client.render.animators;
 
-import com.nukateam.example.common.data.interfaces.IResourceProvider;
+import com.nukateam.geo.interfaces.IResourceProvider;
 import com.nukateam.geo.render.DynamicGeoItemRenderer;
 import com.nukateam.geo.render.ItemAnimator;
 import mod.azure.azurelib.core.animation.AnimatableManager;

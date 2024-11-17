@@ -3,7 +3,6 @@ package com.nukateam.nukacraft.common.foundation.items.misc;
 import com.nukateam.geo.interfaces.DynamicGeoItem;
 import com.nukateam.geo.render.DynamicGeoItemRenderer;
 import com.nukateam.ntgl.Ntgl;
-import com.nukateam.ntgl.client.render.renderers.DefaultGunRendererGeo;
 import com.nukateam.nukacraft.client.render.renderers.items.PipBoyRenderer;
 import com.nukateam.nukacraft.common.data.utils.PipBoyUtils;
 import com.nukateam.nukacraft.common.foundation.container.PipBoyMenu;

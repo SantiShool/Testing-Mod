@@ -1,7 +1,7 @@
 package com.nukateam.nukacraft.common.foundation.items.armor;
 
 import com.jetug.chassis_core.common.foundation.item.StackUtils;
-import com.nukateam.example.common.data.interfaces.IResourceProvider;
+import com.nukateam.geo.interfaces.IResourceProvider;
 import com.nukateam.nukacraft.client.render.renderers.armor.ArmorRenderer;
 import mod.azure.azurelib.animatable.GeoItem;
 import mod.azure.azurelib.animatable.client.RenderProvider;

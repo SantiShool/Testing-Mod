@@ -2,7 +2,7 @@ package com.nukateam.nukacraft.common.foundation.entities.mobs;
 
 import com.jetug.chassis_core.common.util.helpers.timer.PlayOnceTimerTask;
 import com.jetug.chassis_core.common.util.helpers.timer.TickTimer;
-import com.nukateam.ntgl.common.data.util.GunModifierHelper;
+import com.nukateam.ntgl.common.util.util.GunModifierHelper;
 import com.nukateam.ntgl.common.foundation.item.GunItem;
 import com.nukateam.nukacraft.common.data.interfaces.IGunUser;
 import com.nukateam.nukacraft.common.foundation.goals.AssaultronAttackGoal;

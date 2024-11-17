@@ -1,7 +1,7 @@
 package com.nukateam.nukacraft.common.foundation.entities.grenades;
 
 import com.nukateam.ntgl.common.foundation.entity.ProjectileEntity;
-import com.nukateam.ntgl.common.foundation.world.ProjectileExplosion;
+import com.nukateam.ntgl.common.util.world.ProjectileExplosion;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;

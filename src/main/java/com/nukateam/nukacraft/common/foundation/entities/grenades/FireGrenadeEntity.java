@@ -6,7 +6,7 @@ import com.nukateam.ntgl.common.foundation.entity.ProjectileEntity;
 import com.nukateam.ntgl.common.foundation.entity.ThrowableGrenadeEntity;
 import com.nukateam.ntgl.common.foundation.entity.ThrowableItemEntity;
 import com.nukateam.ntgl.common.foundation.init.ModSounds;
-import com.nukateam.ntgl.common.foundation.world.ProjectileExplosion;
+import com.nukateam.ntgl.common.util.world.ProjectileExplosion;
 import com.nukateam.nukacraft.common.registery.EntityTypes;
 import com.nukateam.nukacraft.common.registery.items.ModWeapons;
 import net.minecraft.core.particles.ParticleTypes;

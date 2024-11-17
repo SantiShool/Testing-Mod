@@ -1,7 +1,7 @@
 package com.nukateam.nukacraft.common.foundation.items.misc;
 
-import com.nukateam.example.common.data.interfaces.IMeleeWeapon;
-import com.nukateam.example.common.data.utils.ResourceUtils;
+import com.nukateam.example.common.util.interfaces.IMeleeWeapon;
+import com.nukateam.example.common.util.utils.ResourceUtils;
 import com.nukateam.nukacraft.client.render.renderers.items.SimpleDiggerRenderer;
 import com.nukateam.nukacraft.client.render.renderers.items.SimpleMeleeRenderer;
 import mod.azure.azurelib.animatable.GeoItem;

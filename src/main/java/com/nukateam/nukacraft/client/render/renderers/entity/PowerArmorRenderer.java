@@ -3,7 +3,7 @@ package com.nukateam.nukacraft.client.render.renderers.entity;
 import com.jetug.chassis_core.client.render.renderers.ChassisRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.nukateam.ntgl.client.data.handler.AimingHandler;
+import com.nukateam.ntgl.client.util.handler.AimingHandler;
 import com.nukateam.nukacraft.client.models.PowerArmorModel;
 import com.nukateam.nukacraft.common.foundation.entities.misc.PowerArmorFrame;
 import mod.azure.azurelib.cache.object.BakedGeoModel;

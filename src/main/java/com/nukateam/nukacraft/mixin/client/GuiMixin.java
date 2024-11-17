@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.nukateam.ntgl.client.data.handler.GunRenderingHandler.GUI_ICONS_LOCATION;
+import static com.nukateam.ntgl.client.util.handler.GunRenderingHandler.GUI_ICONS_LOCATION;
 import static com.nukateam.nukacraft.common.data.constants.Textures.RAD_HEART_ICON;
 
 @Mixin(Gui.class)

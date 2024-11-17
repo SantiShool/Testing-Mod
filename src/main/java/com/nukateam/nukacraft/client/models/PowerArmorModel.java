@@ -1,14 +1,14 @@
 package com.nukateam.nukacraft.client.models;
 
 import com.jetug.chassis_core.client.model.ChassisModel;
-import com.nukateam.ntgl.common.data.util.GunModifierHelper;
+import com.nukateam.ntgl.common.util.util.GunModifierHelper;
 import com.nukateam.ntgl.common.foundation.item.GunItem;
 import com.nukateam.nukacraft.common.foundation.entities.misc.PowerArmorFrame;
 import mod.azure.azurelib.core.animatable.model.CoreGeoBone;
 import mod.azure.azurelib.core.animation.AnimationState;
 import net.minecraft.world.InteractionHand;
 
-import static com.nukateam.ntgl.common.data.util.GunModifierHelper.canRenderInOffhand;
+import static com.nukateam.ntgl.common.util.util.GunModifierHelper.canRenderInOffhand;
 
 public class PowerArmorModel extends ChassisModel<PowerArmorFrame> {
     public static void setRotations(CoreGeoBone bone, float rot) {

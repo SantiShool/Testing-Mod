@@ -3,7 +3,7 @@ package com.nukateam.nukacraft.common.foundation.entities.grenades;
 import com.nukateam.ntgl.common.foundation.entity.ProjectileEntity;
 import com.nukateam.ntgl.common.foundation.entity.ThrowableGrenadeEntity;
 import com.nukateam.ntgl.common.foundation.entity.ThrowableItemEntity;
-import com.nukateam.ntgl.common.foundation.world.ProjectileExplosion;
+import com.nukateam.ntgl.common.util.world.ProjectileExplosion;
 import com.nukateam.nukacraft.common.registery.EntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;

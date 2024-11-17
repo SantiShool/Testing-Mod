@@ -2,7 +2,7 @@ package com.nukateam.nukacraft.common.foundation.goals;
 
 import com.mrcrayfish.framework.api.sync.SyncedDataKey;
 import com.nukateam.ntgl.Ntgl;
-import com.nukateam.ntgl.common.base.config.gun.Gun;
+import com.nukateam.ntgl.common.data.config.gun.Gun;
 import com.nukateam.ntgl.common.foundation.init.ModSyncedDataKeys;
 import com.nukateam.ntgl.common.foundation.item.GunItem;
 import com.nukateam.nukacraft.NukaCraftMod;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.nukateam.ntgl.common.data.util.LivingEntityUtils.getInteractionHand;
+import static com.nukateam.ntgl.common.util.util.LivingEntityUtils.getInteractionHand;
 
 @Mod.EventBusSubscriber(modid = NukaCraftMod.MOD_ID)
 public class EntityReloadTracker {
