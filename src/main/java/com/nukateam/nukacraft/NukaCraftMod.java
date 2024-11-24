@@ -11,6 +11,7 @@ import com.nukateam.nukacraft.client.KeyBindings;
 import com.nukateam.nukacraft.common.events.RadiationTracker;
 import com.nukateam.nukacraft.common.foundation.entities.misc.CannonBallEntity;
 import com.nukateam.nukacraft.common.foundation.entities.misc.MiniNukeEntity;
+import com.nukateam.nukacraft.common.foundation.entities.misc.MissileEntity;
 import com.nukateam.nukacraft.common.foundation.items.guns.TeslaGun;
 import com.nukateam.nukacraft.common.foundation.world.ModStructures;
 import com.nukateam.nukacraft.common.network.PacketHandler;
@@ -103,6 +104,9 @@ public class NukaCraftMod {
         ProjectileManager.getInstance().registerFactory(ModWeapons.MININUKE.get(),
                 (level, entity, weapon, item, modifiedGun) ->
                         new MiniNukeEntity(EntityTypes.MININUKE.get(), level, entity, weapon, item, modifiedGun));
+        ProjectileManager.getInstance().registerFactory(ModWeapons.MISSILE.get(),
+                (level, entity, weapon, item, modifiedGun) ->
+                        new MissileEntity(EntityTypes.MISSILE.get(), level, entity, weapon, item, modifiedGun));
 
         ProjectileManager.getInstance().registerFactory(ModWeapons.FUSION_CELL.get(),
                 (level, entity, weapon, item, modifiedGun) -> {

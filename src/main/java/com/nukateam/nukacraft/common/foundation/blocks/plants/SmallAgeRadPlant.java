@@ -2,6 +2,9 @@ package com.nukateam.nukacraft.common.foundation.blocks.plants;
 
 import com.nukateam.nukacraft.common.data.utils.HarvestUtils;
 import com.nukateam.nukacraft.common.data.utils.PlantMutationUtils;
+import com.nukateam.nukacraft.common.registery.ModBlocks;
+import com.nukateam.nukacraft.common.registery.items.ModFood;
+import com.nukateam.nukacraft.common.registery.items.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -92,10 +95,17 @@ public class SmallAgeRadPlant extends BaseBushBlock implements BonemealableBlock
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         int i = state.getValue(AGE);
         boolean flag = i == 3;
-        if (!flag && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
+        boolean adhesive = player.getItemInHand(hand).is(Items.BONE_MEAL) || player.getItemInHand(hand).is(ModItems.FERTILIZER.get()) || player.getItemInHand(hand).is(ModItems.PURPLE_REAGENT.get());
+
+        if (!flag && adhesive) {
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + level.random.nextInt(2);
+            Random ran = new Random();
+            int chance = ran.nextInt(200);
+            if (state.getBlock().equals(ModBlocks.NEOAGAVE.get()) && (chance <= 1)) {
+                popResource(level, pos, new ItemStack(ModFood.RETROGAVE.get(), 1));
+            }
             popResource(level, pos, new ItemStack(HarvestUtils.getFinishItem(state), j + (flag ? 1 : 0)));
             level.playSound((Player) null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             level.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);

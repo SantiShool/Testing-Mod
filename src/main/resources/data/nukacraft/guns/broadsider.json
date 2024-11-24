@@ -7,7 +7,7 @@
     "reloadTime": 120,
     "recoilAngle": 0.0,
     "alwaysSpread": true,
-    "spread": 8.0,
+    "spread": 4.0,
     "damage": 15.0,
     "ammo": [
       "nukacraft:cannonball"

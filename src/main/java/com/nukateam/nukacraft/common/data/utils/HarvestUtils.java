@@ -35,11 +35,21 @@ public class HarvestUtils {
             entry(ModBlocks.MINDFUNGUS.get(), ModItems.MINDFUNGUS.get()),
             entry(ModBlocks.MUTTSHOOTFUNGUS.get(), MUTSHMUSHROOM.get()),
             entry(ModBlocks.STARBERRY.get(), ModFood.STARBERRY.get()),
-            entry(ModBlocks.WILDTATO.get(), ModFood.WILD_TATO.get())
+            entry(ModBlocks.WILDTATO.get(), ModFood.WILD_TATO.get()),
+            entry(ModBlocks.ZANDER.get(), ModFood.XANDER_ROOT.get())
     );
-
     public static Item getFinishItem(BlockState state) {
         var harvetsResult = harvestlist.get(state.getBlock());
+        return harvetsResult.asItem();
+    }
+
+    private static final Map<Block, Item> mushroomlist = Map.ofEntries(
+            entry(ModBlocks.BBLIGHTMUSH.get(), ModFood.BRIGHT_BLIGHT.get()),
+            entry(ModBlocks.MEGASLOTHBLOCK.get(), ModFood.MEGASLOTHFUNGI.get())
+    );
+
+    public static Item getFinishMushroom(BlockState state) {
+        var harvetsResult = mushroomlist.get(state.getBlock());
         return harvetsResult.asItem();
     }
 }

@@ -38,6 +38,55 @@ public class ModItems {
     @DataGen
     public static final RegistryObject<Item> WEAPONPARTS = ITEMS.register("weapon_parts",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CRACKBERRY_SEED = ITEMS.register("crackberry_seed",
+            () -> new ItemNameBlockItem(ModBlocks.CRACKBERRY_BUSH.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> BOMBBERRY_SEED = ITEMS.register("bombberry_seed",
+            () -> new ItemNameBlockItem(ModBlocks.BOMBBERRY_BUSH.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+
+    public static final RegistryObject<Item> MUTTFRUIT_SEED = ITEMS.register("muttfruit_seed",
+            () -> new ItemNameBlockItem(ModBlocks.MUTTFRUIT_BUSH.get(), new Item.Properties()));
+    public static final RegistryObject<Item> AGAVE_SEED = ITEMS.register("agave_seed",
+            () -> new ItemNameBlockItem(ModBlocks.AGAVE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> NEON_AGAVE_SEED = ITEMS.register("neon_agave_seed",
+            () -> new ItemNameBlockItem(ModBlocks.NEOAGAVE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> FUSIONFRUIT_SEED = ITEMS.register("fusionfruit_seed",
+            () -> new ItemNameBlockItem(ModBlocks.FUSFRUIT_BUSH.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    @DataGen
+    public static final RegistryObject<Item> SILT_BEAN_SEED = ITEMS.register("silt_bean_seed",
+            () -> new ItemNameBlockItem(ModBlocks.SILT_BEAN_BUSH.get(), new Item.Properties()));
+    @DataGen
+    public static final RegistryObject<Item> PUNGA_SEED = ITEMS.register("punga_seed",
+            () -> new ItemNameBlockItem(ModBlocks.PUNGA.get(), new Item.Properties()));
+
+    @DataGen
+    public static final RegistryObject<Item> GINSENG_SEED = ITEMS.register("ginseng_seed",
+            () -> new ItemNameBlockItem(ModBlocks.GINSENG.get(), new Item.Properties()));
+    @DataGen
+    public static final RegistryObject<Item> NUKAROOT_SEED = ITEMS.register("nukaroot_seed",
+            () -> new ItemNameBlockItem(ModBlocks.NUKAROOT.get(), new Item.Properties()));
+
+    @DataGen
+    public static final RegistryObject<Item> NUKAMELON_SEED = ITEMS.register("nukamelon_seed",
+            () -> new ItemNameBlockItem(ModBlocks.NUKAMELON_STEM.get(), new Item.Properties()));
+    @DataGen
+    public static final RegistryObject<Item> DATURAN_SEED = ITEMS.register("daturan_sprouts",
+            () -> new ItemNameBlockItem(ModBlocks.DATURAN.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> STARLIGHT_SEED = ITEMS.register("starlight_seed",
+            () -> new ItemNameBlockItem(ModBlocks.STARBERRY.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CRANBERRY_SEED = ITEMS.register("cranberry_seed",
+            () -> new ItemNameBlockItem(ModBlocks.CRANBERRY.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> GOLD_CRANBERRY_SEED = ITEMS.register("gold_cranberry_seed",
+            () -> new ItemNameBlockItem(ModBlocks.GOLD_CRANBERRY.get(), new Item.Properties()));
+    @DataGen
+    public static final RegistryObject<Item> NEUTRON_ROD_SEED = ITEMS.register("neutron_rod_seed",
+            () -> new ItemNameBlockItem(ModBlocks.NEUTRON_BUSH.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
     @DataGen
     public static final RegistryObject<Item> REPAIR_KIT = ITEMS.register("repair_kit",
             () -> new RepairKitItem(200, new Item.Properties().durability(2500)));

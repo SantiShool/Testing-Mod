@@ -65,6 +65,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> ITEM_FATMAN_RELOAD = register("item.fatman.reload");
 
     public static final RegistryObject<SoundEvent> ITEM_45MM_FIRE = register("item.pistol45mm.fire");
+    public static final RegistryObject<SoundEvent> ITEM_MISSILE_FIRE = register("item.missile.fire");
     public static final RegistryObject<SoundEvent> ITEM_45MM_ENCHANTED_FIRE = register("item.pistol45mm.enchanted_fire");
     public static final RegistryObject<SoundEvent> ITEM_45MM_SILENCED_FIRE = register("item.pistol45mm.silenced_fire");
     public static final RegistryObject<SoundEvent> ITEM_45MM_COCK = register("item.pistol45mm.cock");
@@ -73,6 +74,13 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> NUCLEAR_EXPLOSION = register("misc.nuke.mininuke_explosion");
     public static final RegistryObject<SoundEvent> NUCLEAR_EXPLOSION_RUMBLE = register("misc.nuke.nuclear_explosion_rumble");
     public static final RegistryObject<SoundEvent> NUCLEAR_EXPLOSION_RINGING = register("misc.nuke.nuclear_explosion_ringing");
+
+    public static final RegistryObject<SoundEvent> MISSILE_INCOMING = register("misc.missile.missile_incoming");
+
+    public static final RegistryObject<SoundEvent> BUBBLEGUM_USE_0 = register("misc.joke.bubblegum_use_0");
+    public static final RegistryObject<SoundEvent> BUBBLEGUM_USE_1 = register("misc.joke.bubblegum_use_1");
+    public static final RegistryObject<SoundEvent> BUBBLEGUM_USE_2 = register("misc.joke.bubblegum_use_2");
+
 
     public static final RegistryObject<SoundEvent> VAULT_DOOR_INTERACT = register("misc.vaultdoor.interact");
 

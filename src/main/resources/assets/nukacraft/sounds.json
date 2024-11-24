@@ -59,6 +59,9 @@
    "misc.nuke.nuclear_explosion_rumble" : { "subtitle": "subtitle.nukacraft.nuclear_explosion_rumble" , "sounds": [{ "name": "nukacraft:misc/nuke/nuclear_explosion_rumble" }]},
    "misc.nuke.nuclear_explosion_ringing": { "subtitle": "subtitle.nukacraft.nuclear_explosion_ringing", "sounds": [{ "name": "nukacraft:misc/nuke/nuclear_explosion_ringing" }]},
 
+   "misc.missile.missile_incoming": { "subtitle": "subtitle.misc.missile.missile_incoming", "sounds": [{ "name": "nukacraft:misc/missile/missile_incoming" }]},
+   "item.missile.fire": { "subtitle": "subtitle.item.missile.fire", "sounds": [{ "name": "nukacraft:item/missile/fire" }]},
+
    "misc.vaultdoor.interact": { "subtitle": "subtitle.nukacraft.vault_door_work", "sounds": [{ "name": "nukacraft:misc/vaultdoor/interact" }]},
 
    "gui.pipboy.pipboy_up" : { "subtitle": "subtitle.nukacraft.nuclear_explosion_rumble" , "sounds": [{ "name": "nukacraft:gui/pipboy/pipboy_up" }]},
@@ -107,5 +110,11 @@
 
    "item.powdergun.fire":                  { "subtitle": "subtitle.nukacraft.fire",           "sounds": [{ "name": "nukacraft:item/powdergun/fire" }]},
    "item.powdergun.reload":                { "subtitle": "subtitle.nukacraft.reload",         "sounds": [{ "name": "nukacraft:item/powdergun/reload" }]},
-   "item.powdergun.cock":                  { "subtitle": "subtitle.nukacraft.cock",           "sounds": [{ "name": "nukacraft:item/powdergun/cock" }]}
+   "item.powdergun.cock":                  { "subtitle": "subtitle.nukacraft.cock",           "sounds": [{ "name": "nukacraft:item/powdergun/cock" }]},
+
+   "misc.joke.bubblegum_use_0":                  { "subtitle": "subtitle.nukacraft.bubblegun_joke",           "sounds": [{ "name": "nukacraft:misc/joke/bubblegum_use_0" }]},
+
+   "misc.joke.bubblegum_use_1":                  { "subtitle": "subtitle.nukacraft.bubblegun_joke",           "sounds": [{ "name": "nukacraft:misc/joke/bubblegum_use_1" }]},
+
+   "misc.joke.bubblegum_use_2":                  { "subtitle": "subtitle.nukacraft.bubblegun_joke",           "sounds": [{ "name": "nukacraft:misc/joke/bubblegum_use_2" }]}
 }

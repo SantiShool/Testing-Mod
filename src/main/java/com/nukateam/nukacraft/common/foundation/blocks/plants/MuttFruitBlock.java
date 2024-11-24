@@ -1,6 +1,7 @@
 package com.nukateam.nukacraft.common.foundation.blocks.plants;
 
 import com.nukateam.nukacraft.common.registery.items.ModFood;
+import com.nukateam.nukacraft.common.registery.items.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -59,10 +60,11 @@ public class MuttFruitBlock extends BaseBushBlock implements BonemealableBlock {
     }
 
 
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player p_57278_, InteractionHand p_57279_, BlockHitResult p_57280_) {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult p_57280_) {
         int i = state.getValue(AGE);
         boolean flag = i == 2;
-        if (!flag && p_57278_.getItemInHand(p_57279_).is(Items.BONE_MEAL)) {
+        boolean adhesive = player.getItemInHand(hand).is(Items.BONE_MEAL) || player.getItemInHand(hand).is(ModItems.FERTILIZER.get()) || player.getItemInHand(hand).is(ModItems.PURPLE_REAGENT.get());
+        if (!flag && adhesive) {
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + level.random.nextInt(2);
@@ -71,7 +73,7 @@ public class MuttFruitBlock extends BaseBushBlock implements BonemealableBlock {
             level.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else {
-            return super.use(state, level, pos, p_57278_, p_57279_, p_57280_);
+            return super.use(state, level, pos, player, hand, p_57280_);
         }
     }
 

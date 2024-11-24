@@ -17,6 +17,12 @@
     },
     "age=5": {
       "model": "nukacraft:block/nukaroot_stage5"
+    },
+    "age=6": {
+      "model": "nukacraft:block/nukaroot_stage6"
+    },
+    "age=7": {
+      "model": "nukacraft:block/nukaroot_stage7"
     }
   }
 }

@@ -67,39 +67,20 @@ public class ToxicFloaterGrenadeEntity extends ThrowableGrenadeEntity {
     @Override
     public void onDeath(){
         level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 1.0F, -1.0F);
-        createToxicCloud(5.0F, true);}
+        createToxicCloud(5.0F);
+    }
 
 
 
-    private void createToxicCloud(float radius, boolean forceNone)
+    private void createToxicCloud(float radius)
     {
-
-
         AreaEffectCloud cloud = new AreaEffectCloud(this.level(), this.getX(), this.getY(), this.getZ());
         cloud.setRadius(radius + 1.0F);
         cloud.setRadiusOnUse(-0.5F);
         cloud.setWaitTime(10);
         cloud.setRadiusPerTick(-cloud.getRadius() / (float)cloud.getDuration());
         cloud.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 9));
-        //cloud.setPotion(Potions.POISON);
-
         this.level().addFreshEntity(cloud);
-//        Level world = entity.level();
-//        if(world.isClientSide())
-//            return;
-//
-//        world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 1.0F, 1.0F);
-//        DamageSource source = entity instanceof ProjectileEntity projectile ? entity.damageSources().explosion(entity, projectile.getShooter()) : null;
-//        Explosion.BlockInteraction mode = Explosion.BlockInteraction.KEEP;
-//        Explosion explosion = new ProjectileExplosion(world, entity, source, null, entity.getX(), entity.getY(), entity.getZ(), radius, true, mode);
-//
-//        if(net.minecraftforge.event.ForgeEventFactory.onExplosionStart(world, explosion))
-//            return;
-//
-//        // Do explosion logic
-//        explosion.explode();
-//        explosion.finalizeExplosion(true);
-
     }
 
 }

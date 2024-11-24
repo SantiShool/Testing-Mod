@@ -25,8 +25,6 @@ public class ModSetup {
         addPlant(ModBlocks.MARYGOLD.getId(), ModBlocks.POTTED_MARYGOLD);
         addPlant(ModBlocks.BROC.getId(), ModBlocks.POTTED_BROC);
         addPlant(ModBlocks.INVERT.getId(), ModBlocks.POTTED_INVERT);
-        addPlant(ModBlocks.GLOWFUNGUS.getId(), ModBlocks.POTTED_GLOWFUNGUS);
-        addPlant(ModBlocks.MUTTSHOOTFUNGUS.getId(), ModBlocks.POTTED_MUTTSHOOTFUNGUS);
         addPlant(ModBlocks.MEGAHATTERFUNGI.getId(), ModBlocks.POTTED_MEGAHATTERFUNGI);
         addPlant(ModBlocks.HATTERFUNGI.getId(), ModBlocks.POTTED_HATTER);
     }

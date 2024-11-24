@@ -1,9 +1,12 @@
 package com.nukateam.nukacraft.common.foundation.blocks.fluids;
 
+import com.nukateam.nukacraft.common.registery.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -72,8 +75,8 @@ public class AcidFluidBlock extends LiquidBlock {
 //                return false;
 //            }
 //
-//            if (flag && pLevel.getBlockState(lavaPos).is(Blocks.BLUE_ICE)) {
-//                pLevel.setBlockAndUpdate(acidPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(pLevel, acidPos, acidPos, Blocks.BASALT.defaultBlockState()));
+//            if (flag && pLevel.getBlockState(lavaPos).is(Blocks.GRASS_BLOCK)) {
+//                pLevel.setBlockAndUpdate(acidPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(pLevel, acidPos, acidPos, ModBlocks.ACID_DIRT.get().defaultBlockState()));
 ////                this.fizz(pLevel, pPos);
 //                return false;
 //            }

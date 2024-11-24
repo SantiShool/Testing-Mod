@@ -20,10 +20,10 @@ public class ModFood {
     //FOOD
     @DataGen
     public static final RegistryObject<Item> MEGASLOTHFUNGI = ITEMS.register("megasloth",
-            () -> new Item(new Item.Properties()));
+            () -> new RadNamedItem(0.0f, ModBlocks.MEGASLOTHBLOCK.get(),new Item.Properties()));
     @DataGen
     public static final RegistryObject<Item> BRIGHT_BLIGHT = ITEMS.register("bblight",
-            () -> new Item(new Item.Properties()));
+            () -> new RadNamedItem(0.0f, ModBlocks.BBLIGHTMUSH.get(), new Item.Properties()));
     @DataGen
     public static final RegistryObject<Item> NUKA_COLA = ITEMS.register("nuka_cola",
             () -> new NukaColaItem(0.08f, 10, new Item.Properties().food(ModFoodTypes.NUKACOLA)));
@@ -32,22 +32,22 @@ public class ModFood {
             () -> new NukaColaItem(-0.09f, 10, new Item.Properties().food(ModFoodTypes.NUKAFRUTTI)));
     @DataGen
     public static final RegistryObject<Item> CRACKBERRY = ITEMS.register("crackberry",
-            () -> new RadNamedItem(-0.1f, ModBlocks.CRACKBERRY_BUSH.get(), new Item.Properties().food(ModFoodTypes.CRACKBERRY)));
+            () -> new RadFoodItem(-0.1f, new Item.Properties().food(ModFoodTypes.CRACKBERRY)));
     @DataGen
     public static final RegistryObject<Item> BOMBBERRY = ITEMS.register("bombberry",
-            () -> new RadNamedItem(-0.1f, ModBlocks.BOMBBERRY_BUSH.get(), new Item.Properties().food(ModFoodTypes.BOMBBERRY)));
+            () -> new RadFoodItem(-0.1f, new Item.Properties().food(ModFoodTypes.BOMBBERRY)));
     @DataGen
     public static final RegistryObject<Item> MUTTFRUIT = ITEMS.register("muttfruit",
-            () -> new RadNamedItem(0.0f, ModBlocks.MUTTFRUIT_BUSH.get(), new Item.Properties().food(ModFoodTypes.MUTTFRUIT)));
+            () -> new RadFoodItem(0.0f, new Item.Properties().food(ModFoodTypes.MUTTFRUIT)));
     @DataGen
     public static final RegistryObject<Item> FUSION_FRUIT = ITEMS.register("fusion_fruit",
-            () -> new RadNamedItem(-0.2f, ModBlocks.FUSFRUIT_BUSH.get(), new Item.Properties().food(ModFoodTypes.FUSFRUIT)));
+            () -> new RadFoodItem(-0.2f, new Item.Properties().food(ModFoodTypes.FUSFRUIT)));
     @DataGen
     public static final RegistryObject<Item> SILT_BEAN = ITEMS.register("silt_bean",
-            () -> new RadNamedItem(0.0f, ModBlocks.SILT_BEAN_BUSH.get(), new Item.Properties().food(ModFoodTypes.SILT_BEAN)));
+            () -> new RadFoodItem(0.0f, new Item.Properties().food(ModFoodTypes.SILT_BEAN)));
     @DataGen
     public static final RegistryObject<Item> NEUTRON_ROD = ITEMS.register("neutron_rod",
-            () -> new RadNamedItem(0.3f, ModBlocks.NEUTRON_BUSH.get(), new Item.Properties().food(ModFoodTypes.NEUTRONROD)));
+            () -> new RadFoodItem(0.3f, new Item.Properties().food(ModFoodTypes.NEUTRONROD)));
     @DataGen
     public static final RegistryObject<Item> WILD_TATO = ITEMS.register("wild_tato",
             () -> new RadNamedItem(0.0f, ModBlocks.TATO.get(), new Item.Properties().food(ModFoodTypes.WILDTATO)));
@@ -63,13 +63,13 @@ public class ModFood {
             () -> new Item(new Item.Properties().food(ModFoodTypes.SPOILED)));
     @DataGen
     public static final RegistryObject<Item> STARBERRY = ITEMS.register("starlight_berry",
-            () -> new RadNamedItem(0.0f, ModBlocks.STARBERRY.get(), new Item.Properties().food(ModFoodTypes.STARBERRY)));
+            () -> new RadFoodItem(0.0f, new Item.Properties().food(ModFoodTypes.STARBERRY)));
     @DataGen
     public static final RegistryObject<Item> CRANBERRY = ITEMS.register("cranberry",
-            () -> new RadNamedItem(-0.1f, ModBlocks.CRANBERRY.get(), new Item.Properties().food(ModFoodTypes.CRANBERRY)));
+            () -> new RadFoodItem(-0.1f, new Item.Properties().food(ModFoodTypes.CRANBERRY)));
     @DataGen
     public static final RegistryObject<Item> GOLD_CRANBERRY = ITEMS.register("gold_cranberry",
-            () -> new RadNamedItem(-0.3f, ModBlocks.GOLD_CRANBERRY.get(), new Item.Properties().food(ModFoodTypes.CRANBERRY)));
+            () -> new RadFoodItem(-0.3f, new Item.Properties().food(ModFoodTypes.CRANBERRY)));
     @DataGen
     public static final RegistryObject<Item> APPLESP = ITEMS.register("dandy_boy_apples",
             () -> new RadFoodItem(0.5f, new Item.Properties().food(ModFoodTypes.APPLESP)));
@@ -199,25 +199,28 @@ public class ModFood {
 
     @DataGen
     public static final RegistryObject<Item> DATURAN_ROOT = ITEMS.register("daturan_root",
-            () -> new RadNamedItem(0.2f, ModBlocks.DATURAN.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
+            () -> new RadFoodItem(0.2f, new Item.Properties().food(ModFoodTypes.NASTY)));
     @DataGen
     public static final RegistryObject<Item> AGAVE = ITEMS.register("agave_fruit",
-            () -> new RadNamedItem(0f, ModBlocks.AGAVE.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
+            () -> new RadFoodItem(0f, new Item.Properties().food(ModFoodTypes.NASTY)));
     @DataGen
     public static final RegistryObject<Item> NEOAGAVE = ITEMS.register("neoagave_fruit",
-            () -> new RadNamedItem(-0.2f, ModBlocks.NEOAGAVE.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
+            () -> new RadFoodItem(-0.2f, new Item.Properties().food(ModFoodTypes.NASTY)));
+    @DataGen
+    public static final RegistryObject<Item> RETROGAVE = ITEMS.register("retrogave_fruit",
+            () -> new RadFoodItem(-5f, new Item.Properties().food(ModFoodTypes.NASTY)));
     @DataGen
     public static final RegistryObject<Item> PUNGA = ITEMS.register("punga_fruit",
-            () -> new RadNamedItem(0.0f, ModBlocks.PUNGA.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
+            () -> new RadFoodItem(0.0f, new Item.Properties().food(ModFoodTypes.NASTY)));
     @DataGen
     public static final RegistryObject<Item> XANDER_ROOT = ITEMS.register("xander_root",
             () -> new RadNamedItem(0f, ModBlocks.ZANDER.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
     @DataGen
     public static final RegistryObject<Item> NUKAROOT = ITEMS.register("nukaroot",
-            () -> new RadNamedItem(-0.2f, ModBlocks.NUKAROOT.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
+            () -> new RadFoodItem(-0.2f, new Item.Properties().food(ModFoodTypes.NASTY)));
     @DataGen
     public static final RegistryObject<Item> GINSENG_ROOT = ITEMS.register("ginsengroot",
-            () -> new RadNamedItem(0f, ModBlocks.GINSENG.get(), new Item.Properties().food(ModFoodTypes.NASTY)));
+            () -> new RadFoodItem(0f, new Item.Properties().food(ModFoodTypes.NASTY)));
 
     //////////MEDICINE ITEMS
     @DataGen

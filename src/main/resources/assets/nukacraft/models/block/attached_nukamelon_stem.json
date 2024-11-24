@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stem_fruit",
+  "render_type": "cutout",
+  "textures": {
+    "stem": "nukacraft:block/nukamelon_stem",
+    "upperstem": "nukacraft:block/attached_nukamelon_stem"
+  }
+}
