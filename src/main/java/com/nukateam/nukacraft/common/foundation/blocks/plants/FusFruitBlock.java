@@ -1,6 +1,7 @@
 package com.nukateam.nukacraft.common.foundation.blocks.plants;
 
 import com.nukateam.nukacraft.common.registery.items.ModFood;
+import com.nukateam.nukacraft.common.registery.items.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -63,7 +64,8 @@ public class FusFruitBlock extends BaseBushBlock implements BonemealableBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         int i = state.getValue(AGE);
         boolean flag = i == 2;
-        if (!flag && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
+        boolean adhesive = player.getItemInHand(hand).is(Items.BONE_MEAL) || player.getItemInHand(hand).is(ModItems.FERTILIZER.get()) || player.getItemInHand(hand).is(ModItems.PURPLE_REAGENT.get());
+        if (!flag && adhesive) {
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + level.random.nextInt(2);

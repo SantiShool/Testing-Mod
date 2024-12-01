@@ -2,11 +2,59 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "nukacraft:cranberry_seed",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              },
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.1
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "nukacraft:cranberry"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 3
+          }
+        },
+        {
+          "function": "minecraft:apply_bonus",
+          "enchantment": "minecraft:fortune",
+          "formula": "minecraft:uniform_bonus_count",
+          "parameters": {
+            "bonusMultiplier": 1
+          }
         }
       ],
       "conditions": [
@@ -17,14 +65,23 @@
             "age": "3"
           }
         }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "nukacraft:cranberry"
+        }
       ],
       "functions": [
         {
           "function": "minecraft:set_count",
           "count": {
-            "min": 2.0,
-            "max": 3.0,
-            "type": "minecraft:uniform"
+            "type": "minecraft:uniform",
+            "min": 1,
+            "max": 2
           }
         },
         {
@@ -34,15 +91,6 @@
           "parameters": {
             "bonusMultiplier": 1
           }
-        }
-      ]
-    },
-    {
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "nukacraft:cranberry"
         }
       ],
       "conditions": [
@@ -51,24 +99,6 @@
           "block": "nukacraft:cranberry",
           "properties": {
             "age": "2"
-          }
-        }
-      ],
-      "functions": [
-        {
-          "function": "minecraft:set_count",
-          "count": {
-            "min": 1.0,
-            "max": 2.0,
-            "type": "minecraft:uniform"
-          }
-        },
-        {
-          "function": "minecraft:apply_bonus",
-          "enchantment": "minecraft:fortune",
-          "formula": "minecraft:uniform_bonus_count",
-          "parameters": {
-            "bonusMultiplier": 1
           }
         }
       ]

@@ -10,7 +10,7 @@ public class ModFoodTypes {
     public static final FoodProperties NASTY = (new FoodProperties.Builder()).nutrition(0).alwaysEat().saturationMod(0.2f).build();
     public static final FoodProperties NUKACOLA = (new FoodProperties.Builder()).nutrition(1).alwaysEat().saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1), 0.3f).build();
     public static final FoodProperties NUKAFRUTTI = (new FoodProperties.Builder()).nutrition(1).alwaysEat().saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1), 0.3f).build();
-    public static final FoodProperties CRACKBERRY = (new FoodProperties.Builder()).nutrition(0).alwaysEat().saturationMod(0.1f).build();
+    public static final FoodProperties CRACKBERRY = (new FoodProperties.Builder()).nutrition(0).alwaysEat().saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0), 0.3f).build();
     public static final FoodProperties BOMBBERRY = (new FoodProperties.Builder()).nutrition(0).alwaysEat().saturationMod(0.1f).build();
     public static final FoodProperties MUTTFRUIT = (new FoodProperties.Builder()).nutrition(1).alwaysEat().saturationMod(0.3f).build();
     public static final FoodProperties FUSFRUIT = (new FoodProperties.Builder()).nutrition(1).alwaysEat().saturationMod(0.3f).build();

@@ -4,19 +4,23 @@ import com.nukateam.ntgl.common.foundation.block.WorkbenchBlock;
 import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.data.annotation.DataGen;
 import com.nukateam.nukacraft.common.data.enums.ResourceType;
+import com.nukateam.nukacraft.common.foundation.blocks.SlagSludgeBlock;
 import com.nukateam.nukacraft.common.foundation.blocks.blocks.PipeBlock;
 import com.nukateam.nukacraft.common.foundation.blocks.blocks.*;
 import com.nukateam.nukacraft.common.foundation.blocks.plants.*;
 import com.nukateam.nukacraft.common.registery.items.ModBlockItems;
+import com.nukateam.nukacraft.common.registery.items.ModItems;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -244,9 +248,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> ACID_DIRT = registerBlock("acid_dirt",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.GRASS)
                     .strength(0.2f)));
-    @DataGen(type = ResourceType.BLOCK)
+    //  @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> ASHDIRT = registerBlock("ashdirt",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.GRASS)
+            () -> new SlagSludgeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).isViewBlocking((blockState, blockGetter, blockPos) -> {return (int) blockState.getValue(SlagSludgeBlock.LAYERS) >= 8;}).sound(SoundType.GRASS)
                     .strength(0.2f)));
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> SCORCHED = registerBlock("scorched_earth",
@@ -255,7 +259,7 @@ public class ModBlocks {
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> ASHSTONE = registerBlock("ash_stone",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE)
-                    .strength(1.2f)));
+                    .strength(1.2f).requiresCorrectToolForDrops()));
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> ASHSMOKER = registerBlock("ash_smoker",
             () -> new AshSmoker(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE)
@@ -511,7 +515,7 @@ public class ModBlocks {
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> VTARMOR = registerBlock("vtarmor",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).mapColor(MapColor.STONE)
-                    .strength(5.4f, 9.7f).requiresCorrectToolForDrops()));
+                    .strength(5.4f, 120.7f).requiresCorrectToolForDrops()));
 
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> BLACKSTEEL = registerBlock("blacksteel",
@@ -620,12 +624,21 @@ public class ModBlocks {
 
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> NUKAMELON = registerBlock("nukamelon",
-            () -> new MelonBlock(BlockBehaviour.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.COLOR_LIGHT_GREEN).strength(1.0F).sound(SoundType.WOOD)));
+            () -> new NukaMelonBlock(BlockBehaviour.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.COLOR_LIGHT_GREEN).strength(1.0F).sound(SoundType.WOOD)));
+
+
+    public static final RegistryObject<Block> ATTACHED_NUKAMELON_STEM = registerBlockWithoutItem("attached_nukamelon_stem",
+            () -> new AttachedStemBlock((StemGrownBlock)ModBlocks.NUKAMELON.get(), ModItems.NUKAMELON_SEED::get, BlockBehaviour.Properties.of().sound(SoundType.GRASS).mapColor(MapColor.COLOR_LIGHT_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> NUKAMELON_STEM = registerBlockWithoutItem("nukamelon_stem",
+            () -> new StemBlock((StemGrownBlock)ModBlocks.NUKAMELON.get(), ModItems.NUKAMELON_SEED::get, BlockBehaviour.Properties.of().sound(SoundType.GRASS).mapColor(MapColor.COLOR_LIGHT_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
+
+
+
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> THISTLE = registerBlock("thistle",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> CRANBERRY_GRASS = registerBlock("cranberrygrass",
@@ -641,7 +654,7 @@ public class ModBlocks {
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> RUSTY_BUSH = registerBlock("rusty_bush",
-            () -> new FlowerBlock(MobEffects.DIG_SPEED, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+            () -> new FlowerBlock(MobEffects.DIG_SPEED, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
 
 //    @DataGen(type = ResourceType.BLOCK)
 
@@ -656,11 +669,11 @@ public class ModBlocks {
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> DEAD_PLANT = registerBlock("death_plant",
-            () -> new FlowerBlock(MobEffects.DIG_SPEED, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+            () -> new FlowerBlock(MobEffects.DIG_SPEED, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> DEATH_FLOWER = registerBlock("death_flower",
-            () -> new FlowerBlock(MobEffects.DIG_SPEED, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+            () -> new FlowerBlock(MobEffects.DIG_SPEED, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
 
     @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_DEATH_FLOWER = registerBlockWithoutItem("potted_death_flower",
@@ -682,7 +695,11 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> ASTER = registerBlock("aster",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
+
+    public static final RegistryObject<Block> NUKAMELON_BLOSSOM = registerBlock("nukamelon_blossom",
+            () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_ASTER = registerBlockWithoutItem("potted_aster",
@@ -692,7 +709,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> BROC = registerBlock("brocflower",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_BROC = registerBlockWithoutItem("potted_broc",
@@ -702,7 +719,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> INVERT = registerBlock("invertflower",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_INVERT = registerBlockWithoutItem("potted_invert",
@@ -712,7 +729,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> RADASTER = registerBlock("radaster",
             () -> new FlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.AZALEA_LEAVES).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_RADASTER = registerBlockWithoutItem("potted_radaster",
@@ -721,16 +738,17 @@ public class ModBlocks {
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> FIREMUSHROOM = registerBlockWithoutItem("firefungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().randomTicks()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_FIREMUSHROOM = registerBlockWithoutItem("potted_firemushroom",
             () -> new FlowerPotBlock(null, ModBlocks.FIREMUSHROOM,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
 
+
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> BLASTCAP = registerBlockWithoutItem("blastcapfungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks().instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_BLASTCAP = registerBlockWithoutItem("potted_blastcap",
@@ -740,7 +758,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> ASHROSE = registerBlock("ashrose",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_ASHROSE = registerBlockWithoutItem("potted_ashrose",
@@ -750,7 +768,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> RADROSE = registerBlock("rad_rose",
             () -> new FlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_RADROSE = registerBlockWithoutItem("potted_rad_rose",
@@ -760,7 +778,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> FEVERBLOSSOM = registerBlock("feverblossom",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
     //
 //    @DataGen(type = ResourceTyp//e.BLOCK)
     public static final RegistryObject<Block> POTTED_FEVERBLOSSOM = registerBlockWithoutItem("potted_feverblossom",
@@ -770,7 +788,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> BOOMBLOSSOM = registerBlock("boomblossom",
             () -> new FlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_BOOMBLOSSOM = registerBlockWithoutItem("potted_boomblossom",
@@ -780,7 +798,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> SOOTFLOWER = registerBlock("sootflower",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
     //
 //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_SOOTFLOWER = registerBlockWithoutItem("potted_sootflower",
@@ -790,7 +808,7 @@ public class ModBlocks {
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> GEIGERBLOSSOM = registerBlock("geigerblossom",
             () -> new FlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> POTTED_GEIGERBLOSSOM = registerBlockWithoutItem("potted_geigerblossom",
@@ -799,50 +817,50 @@ public class ModBlocks {
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> BLOODLEAF_BUSH = registerBlockWithoutItem("bloodleaf",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     //    @DataGen(type = ResourceType.BLOCK)
     public static final RegistryObject<Block> BBLOODLEAF_BUSH = registerBlockWithoutItem("bbloodleaf",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> QUANTUMLEAF_BUSH = registerBlockWithoutItem("qbloodleaf",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> GAMMALEAF_BUSH = registerBlockWithoutItem("gbloodleaf",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> CRACKBERRY_BUSH = registerBlockWithoutItem("crackberry",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> BOMBBERRY_BUSH = registerBlockWithoutItem("bombberry",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> MUTTFRUIT_BUSH = registerBlockWithoutItem("muttfruit",
-            () -> new MuttFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new MuttFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> FUSFRUIT_BUSH = registerBlockWithoutItem("fusionfruit",
-            () -> new FusFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new FusFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> SILT_BEAN_BUSH = registerBlockWithoutItem("silt_bean",
-            () -> new SittBeansBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SiltCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
 
     public static final RegistryObject<Block> NEUTRON_BUSH = registerBlockWithoutItem("neutronpod",
-            () -> new NeutronRodBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new NeutronRodCrop(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
 
     public static final RegistryObject<Block> WILDTATO = registerBlockWithoutItem("wildtato",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> CRANBERRY = registerBlockWithoutItem("cranberry",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> GOLD_CRANBERRY = registerBlockWithoutItem("gold_cranberry",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> STARBERRY = registerBlockWithoutItem("starberry",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> GUTFUNGI = registerBlockWithoutItem("gutfungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks().instabreak()));
 
     public static final RegistryObject<Block> POTTED_GUTSHROOM = registerBlockWithoutItem("potted_gutshroom",
             () -> new FlowerPotBlock(null, ModBlocks.GUTFUNGI,
@@ -852,38 +870,38 @@ public class ModBlocks {
             () -> new CropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.CROP).noCollission().instabreak()));
 
     public static final RegistryObject<Block> BRAINFUNGUS = registerBlockWithoutItem("brainfungus",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     @DataGen
     public static final RegistryObject<Block> MINDFUNGUS = registerBlockWithoutItem("mindfungus",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak().lightLevel((p_50892_) -> {
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().lightLevel((p_50892_) -> {
                 return 5;
 
             })));
 
     public static final RegistryObject<Block> GLOWFUNGUS = registerBlockWithoutItem("glowfungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak().lightLevel((p_50892_) -> {
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).randomTicks().noCollission().instabreak().lightLevel((p_50892_) -> {
                 return 4;
 
             })));
 
-    public static final RegistryObject<Block> POTTED_GLOWFUNGUS = registerBlockWithoutItem("potted_glowfungi",
-            () -> new FlowerPotBlock(null, ModBlocks.GLOWFUNGUS,
-                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
+//    public static final RegistryObject<Block> POTTED_GLOWFUNGUS = registerBlockWithoutItem("potted_glowfungi",
+//            () -> new FlowerPotBlock(null, ModBlocks.GLOWFUNGUS,
+//                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
 
     public static final RegistryObject<Block> MUTTSHOOTFUNGUS = registerBlockWithoutItem("mutshootfungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak().lightLevel((p_50892_) -> {
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks().instabreak().lightLevel((p_50892_) -> {
                 return 9;
 
             })));
 
-    public static final RegistryObject<Block> POTTED_MUTTSHOOTFUNGUS = registerBlockWithoutItem("potted_mutshootfungi",
-            () -> new FlowerPotBlock(null, ModBlocks.MUTTSHOOTFUNGUS,
-                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
+//    public static final RegistryObject<Block> POTTED_MUTTSHOOTFUNGUS = registerBlockWithoutItem("potted_mutshootfungi",
+//            () -> new FlowerPotBlock(null, ModBlocks.MUTTSHOOTFUNGUS,
+//                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
 
 
     public static final RegistryObject<Block> MEGAHATTERFUNGI = registerBlockWithoutItem("megamorph_hatterfungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).randomTicks().noCollission().instabreak()));
 
     public static final RegistryObject<Block> POTTED_MEGAHATTERFUNGI = registerBlockWithoutItem("potted_megamorph",
             () -> new FlowerPotBlock(null, ModBlocks.MEGAHATTERFUNGI,
@@ -894,7 +912,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
 
     public static final RegistryObject<Block> HATTERFUNGI = registerBlockWithoutItem("hatterfungi",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new RadMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).randomTicks().noCollission().instabreak()));
 
     public static final RegistryObject<Block> REDLIGHT = registerBlock("redlight",
             () -> new CustomModelBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).mapColor(MapColor.METAL)
@@ -923,10 +941,10 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> HOLLYHOCK = registerBlock("hollyhock",
-            () -> new DoublePlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new DoublePlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> MARYGOLD = registerBlock("marygold",
-            () -> new FlowerBlock(MobEffects.BLINDNESS, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new FlowerBlock(MobEffects.BLINDNESS, 0, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.GRASS).noCollission().instabreak()));
 
     public static final RegistryObject<Block> POTTED_MARYGOLD = registerBlockWithoutItem("potted_marygold",
             () -> new FlowerPotBlock(null, ModBlocks.MARYGOLD,
@@ -934,22 +952,23 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> DATURAN = registerBlockWithoutItem("root_daturan",
-            () -> new DaturanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new DaturanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> AGAVE = registerBlockWithoutItem("agave",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> PUNGA = registerBlockWithoutItem("punga",
-            () -> new PungaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new PungaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> NEOAGAVE = registerBlockWithoutItem("neoagave",
-            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
     public static final RegistryObject<Block> GLOWRESINBLOCK = registerBlockWithoutItem("glowresinblock",
             () -> new ResinBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).sound(SoundType.WOOD).instabreak().lightLevel((p_50892_) -> {
                 return 2;
 
             })));
+
 
 
     public static final RegistryObject<Block> MEGASLOTHBLOCK = registerBlockWithoutItem("megaslotmush",
@@ -965,10 +984,11 @@ public class ModBlocks {
             })));
 
     public static final RegistryObject<Block> GINSENG = registerBlockWithoutItem("ginseng",
-            () -> new GinsengBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new GinsengCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
 
     public static final RegistryObject<Block> NUKAROOT = registerBlockWithoutItem("nukaroot",
-            () -> new NukaRootBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new NukaRootCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+
 
     public static final RegistryObject<Block> CORALLEAF = registerBlockWithoutItem("coral_leaf",
             () -> new CoralLeafBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
@@ -978,19 +998,18 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> DEAD_PUNGA = registerBlock("dead_punga",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     public static final RegistryObject<Block> DEAD_DATURAN = registerBlock("dead_daturan",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     public static final RegistryObject<Block> DEAD_CORALLEAF = registerBlock("dead_coralleaf",
             () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak()));
 
     public static final RegistryObject<Block> ZANDER = registerBlockWithoutItem("zander",
-            () -> new ModFlowerBlock(MobEffects.DIG_SPEED, 0,
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).noCollission().instabreak()));
+            () -> new SmallAgeRadPlant(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak()));
 
 
     @DataGen(type = ResourceType.BLOCK)

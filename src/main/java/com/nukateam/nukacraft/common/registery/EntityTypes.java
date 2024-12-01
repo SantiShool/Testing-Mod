@@ -32,6 +32,9 @@ public class EntityTypes {
     public static final RegistryObject<EntityType<BaseballGrenadeEntity>> BASEBALL_GRENADE_ENTITY =
             registerBasic("baseball_grenade_entity", BaseballGrenadeEntity::new);
 
+    public static final RegistryObject<EntityType<ThrowDirtyTrickEntity>> DIRTY_TRICK_ENTITY =
+            registerBasic("dirty_trick_entity", ThrowDirtyTrickEntity::new);
+
     public static final RegistryObject<EntityType<MolotovEntity>> COCKTAIL_MOLOTOV_ENTITY =
             registerBasic("cocktail_molotov_entity", MolotovEntity::new);
 
@@ -82,7 +85,8 @@ public class EntityTypes {
 //                    .updateInterval(Integer.MAX_VALUE));
 
     public static final RegistryObject<EntityType<MiniNukeEntity>> MININUKE = registerBasic("mini_nuke", MiniNukeEntity::new);
-
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE = registerBasic("missile_entity", MissileEntity::new);
+    public static final RegistryObject<EntityType<CannonBallEntity>> CANNONBALL = registerBasic("cannon_ball", CannonBallEntity::new);
     public static final RegistryObject<EntityType<PowerArmorFrame>> POWER_ARMOR_FRAME =
             registerEntity("power_armor_frame", Builder
                     .of(PowerArmorFrame::new, MobCategory.MISC)

@@ -2,10 +2,13 @@ package com.nukateam.nukacraft.common.foundation.blocks.plants;
 
 import com.nukateam.nukacraft.common.registery.ModBlocks;
 import com.nukateam.nukacraft.common.registery.items.ModFood;
+import com.nukateam.nukacraft.common.registery.items.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -20,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.ForgeHooks;
 
 public class MegaSlothBlock extends CocoaBlock {
     protected static final VoxelShape WEST_AABB = Block.box(0.09999999999999964, 0.1, 0.09999999999999892, 2.0999999999999996, 15.9, 15.9);
@@ -40,7 +44,8 @@ public class MegaSlothBlock extends CocoaBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         int i = state.getValue(AGE);
         boolean flag = i == 2;
-        if (!flag && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
+        boolean adhesive = player.getItemInHand(hand).is(Items.BONE_MEAL) || player.getItemInHand(hand).is(ModItems.FERTILIZER.get()) || player.getItemInHand(hand).is(ModItems.PURPLE_REAGENT.get());
+        if (!flag && adhesive) {
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + level.random.nextInt(2);
@@ -53,6 +58,16 @@ public class MegaSlothBlock extends CocoaBlock {
         }
     }
 
+    @Override
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        int i = pState.getValue(AGE);
+        if (!pLevel.canSeeSky(pPos)) {
+            if (i < 2 && ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pLevel.random.nextInt(5) == 0)) {
+                pLevel.setBlock(pPos, pState.setValue(AGE, i + 1), 2);
+                ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
+            }
+        }
+    }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         //int i = pState.getValue(AGE);
         switch ((Direction) pState.getValue(FACING)) {

@@ -1,5 +1,16 @@
 {
   "variants": {
-    "": { "model":  "nukacraft:block/zander"}
+    "age=0": {
+      "model": "nukacraft:block/zander_0"
+    },
+    "age=1": {
+      "model": "nukacraft:block/zander_1"
+    },
+    "age=2": {
+      "model": "nukacraft:block/zander_2"
+    },
+    "age=3": {
+      "model": "nukacraft:block/zander_3"
+    }
   }
 }

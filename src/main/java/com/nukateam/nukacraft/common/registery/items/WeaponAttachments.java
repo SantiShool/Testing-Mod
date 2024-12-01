@@ -118,7 +118,7 @@ public class WeaponAttachments {
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PIPE_COMPENSATOR = ITEMS.register("pipe_compensator",
-            () -> new BarrelItem(Barrel.create(3.0F, GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_DAMAGE_lvl2), new Item.Properties().stacksTo(1)));
+            () -> new BarrelItem(Barrel.create(7.0F, GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_DAMAGE_lvl2), new Item.Properties().stacksTo(1)));
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PIPE_FLAME_HIDER = ITEMS.register("pipe_flame_hider",
@@ -338,7 +338,27 @@ public class WeaponAttachments {
             () -> new BarrelItem(Barrel.create(3.0F, GunModifiers.EXTEND_KICKING_LVL3, GunModifiers.EXTEND_RECOIL_LVL2,GunModifiers.EXTEND_DAMAGE_lvl3), new Item.Properties().stacksTo(1)));
 
 
+
+
+    public static final RegistryObject<Item> BROADSIDER_MAGAZINE = ITEMS.register("broadsider_magazine",
+            () -> new MagazineItem(Magazine.create(3, GunModifiers.BROADSIDER_MAG), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROADSIDER_BARREL = ITEMS.register("broadsider_barrel",
+            () -> new BarrelItem(Barrel.create(0F, GunModifiers.EXTEND_KICKING_LVL3,GunModifiers.EXTEND_DAMAGE_lvl3), new Item.Properties().stacksTo(1)));
+
+
     //@DataGen(path = "attachments")
+
+    public static final RegistryObject<Item> AUTO_AIM_MODULE = ITEMS.register("auto_aim_module",
+            () -> new ScopeItem(Attachments.SHORT_SCOPE, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MISSILE_MAGAZINE = ITEMS.register("missile_magazine",
+            () -> new BarrelItem(Barrel.create(0F), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MISSILE_DRUM = ITEMS.register("missile_drum",
+            () -> new BarrelItem(Barrel.create(0F), new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> BARREL_EXTENDER_MISSILE = ITEMS.register("barrel_extender_missile",
+            () -> new StockItem(Stock.create(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> STOCK_BLADE_MISSILE = ITEMS.register("stock_blade_missile",
+            () -> new StockItem(Stock.create(), new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> STOCK_SHIELD = ITEMS.register("stock_shield",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_KICKING_LVL1), new Item.Properties().stacksTo(1)));
     public static void register(IEventBus eventBus) {

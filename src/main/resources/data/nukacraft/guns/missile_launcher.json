@@ -1,0 +1,84 @@
+{
+  "general": {
+    "rate": 10,
+    "gripType": "ntgl:bazooka",
+    "category": "heavy",
+    "maxAmmo": 1,
+    "reloadTime": 120,
+    "recoilAngle": 0.0,
+    "alwaysSpread": true,
+    "spread": 4.0,
+    "damage": 15.0,
+    "ammo": [
+      "nukacraft:missile"
+    ]
+  },
+  "sounds": {
+    "fire": "nukacraft:item.missile.fire",
+    "reload": "nukacraft:item.broadsider.reload",
+    "cock": "nukacraft:item.broadsider.cock"
+  },
+  "textures": {
+    "default" : "nukacraft:missile_launcher_default",
+    "blue"    : "nukacraft:broadsider_blue",
+    "light_blue"    : "nukacraft:broadsider_light_blue",
+    "black"   : "nukacraft:broadsider_black",
+    "brown"   : "nukacraft:broadsider_brown",
+    "gray"    : "nukacraft:broadsider_gray",
+    "light_gray"    : "nukacraft:broadsider_light_gray",
+    "cyan"    : "nukacraft:broadsider_cyan",
+    "green"   : "nukacraft:broadsider_green",
+    "orange"   : "nukacraft:broadsider_orange",
+    "yellow"   : "nukacraft:broadsider_yellow",
+    "red"   : "nukacraft:broadsider_red",
+    "purple"   : "nukacraft:broadsider_purple",
+    "white"   : "nukacraft:broadsider_white",
+    "magenta"   : "nukacraft:broadsider_magenta",
+    "lime"   : "nukacraft:broadsider_lime",
+    "pink"    : "nukacraft:broadsider_pink",
+    "clean"    : "nukacraft:missile_launcher_clean"
+  },
+  "modules": {
+    "attachments": {
+      "ntgl:barrel": [
+        {
+          "name": "barrel3",
+          "item": "nukacraft:missile_magazine",
+          "hide": [
+            "barrel1"
+          ]
+        },
+        {
+          "name": "barrel2",
+          "item": "nukacraft:missile_drum",
+          "hide": [
+            "barrel1"
+          ]
+        }
+      ],
+      "ntgl:stock": [
+        {
+          "name": "muzzle2",
+          "item": "nukacraft:stock_blade_missile"
+        },
+        {
+          "name": "muzzle1",
+          "item": "nukacraft:barrel_extender_missile"
+        }
+      ],
+      "ntgl:scope": [
+        {
+          "name": "targeting_computer",
+          "item": "nukacraft:auto_aim_module"
+        },
+        {
+          "name": "iron_sight",
+          "item": "nukacraft:pistol_iron_sight"
+        },
+        {
+          "name": "optic_scope",
+          "item": "nukacraft:pistol_holographic_sight"
+        }
+      ]
+    }
+  }}

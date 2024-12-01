@@ -38,7 +38,7 @@ public class PlantMutationUtils {
             entry(ModBlocks.GLOWRESINBLOCK.get(), ModBlocks.GLOWSAP.get()),
             entry(ModBlocks.MEGASLOTHBLOCK.get(), ModBlocks.BBLIGHTMUSH.get()),
 
-            entry(Blocks.MELON, ModBlocks.NUKAMELON.get()),
+            entry(Blocks.MELON_STEM, ModBlocks.NUKAMELON_STEM.get()),
             entry(Blocks.WHEAT, ModBlocks.GIGAWHEAT.get()),
             entry(Blocks.POTATOES, ModBlocks.TATO.get()),
             entry(Blocks.BEETROOTS, ModBlocks.IRRADROOT.get()),

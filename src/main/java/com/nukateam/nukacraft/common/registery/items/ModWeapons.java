@@ -10,9 +10,11 @@ import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.data.annotation.DataGen;
 import com.nukateam.nukacraft.common.foundation.ModTiers;
 import com.nukateam.nukacraft.common.foundation.entities.grenades.*;
+import com.nukateam.nukacraft.common.foundation.entities.misc.ThrowDirtyTrickEntity;
 import com.nukateam.nukacraft.common.foundation.entities.misc.ToxicFloaterGrenadeEntity;
 import com.nukateam.nukacraft.common.foundation.items.frame.FusionCoreItem;
 import com.nukateam.nukacraft.common.foundation.items.guns.*;
+import com.nukateam.nukacraft.common.foundation.items.misc.DirtyTrickItem;
 import com.nukateam.nukacraft.common.foundation.items.misc.SimpleDiggerItem;
 import com.nukateam.nukacraft.common.foundation.items.misc.SimpleMeleeWeapon;
 import com.nukateam.nukacraft.common.foundation.items.misc.SpearItem;
@@ -163,6 +165,7 @@ public class ModWeapons {
     public static final RegistryObject<GunItem> GATLING_LASER = registerGun("gatling_laser");
     public static final RegistryObject<GunItem> POWDERGUN = registerGun("powdergun");
     public static final RegistryObject<GunItem> SHOTGUN = registerGun("shotgun");
+    public static final RegistryObject<GunItem> MISSILE_LAUNCHER = registerGun("missile_launcher");
 
     public static final RegistryObject<GunItem> TESLA_RIFLE = ITEMS.register("tesla_rifle", () -> new TeslaGun(new Item.Properties()));
     public static final RegistryObject<GunItem> LASER_RIFLE = registerGun("laser_rifle");
@@ -190,8 +193,9 @@ public class ModWeapons {
 //    public static final RegistryObject<Item> OLD_SILENCER  = ITEMS.register("old_silencer", () -> new BarrelItem(Barrel.create(2, ExtraGunModifiers.OLD_SILENCER), new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 //    public static final RegistryObject<Item> HANDMADE_FLASHER  = ITEMS.register("handmade_flashhider", () -> new BarrelItem(Barrel.create(2, ExtraGunModifiers.HANDMADE_FLASHER), new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> MISSILE = ITEMS.register("missile", () ->
-            new AmmoItem(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> MISSILE = registerAmmo("missile");
 
     public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade", () ->
             new BaseGrenadeItem<>(new Item.Properties(), 20 * 4, ThrowableGrenadeEntity::new));
@@ -207,6 +211,9 @@ public class ModWeapons {
 
     public static final RegistryObject<Item> GRENADE_FIRE_FLOATER = ITEMS.register("flame_floater_grenade", () ->
             new BaseGrenadeItem<>(new Item.Properties(), 25 * 4, FlameFloaterGrenadeEntity::new));
+
+    public static final RegistryObject<Item> BRAHMIN_DIRTY_TRICK = ITEMS.register("brahmin_dirty_trick", () ->
+            new DirtyTrickItem<>(new Item.Properties(), 25 * 4, ThrowDirtyTrickEntity::new));
 
     public static final RegistryObject<Item> GRENADE_TOXIC_FLOATER = ITEMS.register("toxic_floater_grenade", () ->
             new BaseGrenadeItem<>(new Item.Properties(), 25 * 4, ToxicFloaterGrenadeEntity::new));
@@ -240,7 +247,7 @@ public class ModWeapons {
     public static final RegistryObject<Item> ROUND38_PIERCING = registerAmmo("round38_piercing");
     @DataGen
     public static final RegistryObject<Item> STEEL_BALLS = registerAmmo("steel_ball");
-    @DataGen
+    //@DataGen
     public static final RegistryObject<Item> CANNONBALL = registerAmmo("cannonball");
     @DataGen
     public static final RegistryObject<Item> STEEL_ROUND = registerAmmo("steel_round");

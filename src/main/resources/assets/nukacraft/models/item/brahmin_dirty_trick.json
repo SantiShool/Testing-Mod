@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "nukacraft:item/dirty_trick"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "nukacraft:item/dirty_trick_icon"
+    },
+    "ground": {
+      "parent": "nukacraft:item/dirty_trick_icon"
+    },
+    "fixed": {
+      "parent": "nukacraft:item/dirty_trick_icon"
+    }
+  }
+}

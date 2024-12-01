@@ -1,5 +1,6 @@
 package com.nukateam.nukacraft.common.foundation.world.features.configured;
 
+import com.nukateam.nukacraft.common.foundation.blocks.SlagSludgeBlock;
 import com.nukateam.nukacraft.common.registery.ModBlocks;
 import com.nukateam.nukacraft.common.registery.fluid.ModFluids;
 import net.minecraft.core.Direction;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ReplaceSphereConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 
@@ -34,16 +36,27 @@ public final class BiomeFeatures {
 
         FeatureUtils.register(context, DISK_ASHDIRT, Feature.DISK, new DiskConfiguration(
                 new RuleBasedBlockStateProvider(
-                        BlockStateProvider.simple(Blocks.MUD),
+                        BlockStateProvider.simple(ModBlocks.ASHDIRT.get().defaultBlockState().setValue(SlagSludgeBlock.LAYERS, 8)),
                         List.of(new RuleBasedBlockStateProvider
                                 .Rule(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.AIR),
-                                BlockStateProvider.simple(ModBlocks.ASHDIRT.get())))
+                                BlockStateProvider.simple(ModBlocks.ASHDIRT.get().defaultBlockState().setValue(SlagSludgeBlock.LAYERS, 8))))
                 ),
                 BlockPredicate.matchesBlocks(Blocks.DIRT, Blocks.GRASS_BLOCK),
-                UniformInt.of(2, 5),
-                4));
+                UniformInt.of(1, 2),
+                2));
 
 
+        //FeatureUtils.register(context, DISK_ASHDIRT, Feature.REPLACE_BLOBS, new ReplaceSphereConfiguration(Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.WATER.defaultBlockState(), UniformInt.of(2, 8)));
+//        FeatureUtils.register(context, DISK_ASHDIRT, Feature.DISK, new DiskConfiguration(
+//                new RuleBasedBlockStateProvider(
+//                        BlockStateProvider.simple(Blocks.GRASS_BLOCK),
+//                        List.of(new RuleBasedBlockStateProvider
+//                                .Rule(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.AIR),
+//                                BlockStateProvider.simple(Blocks.GRASS_BLOCK)))
+//                ),
+//                BlockPredicate.matchesBlocks(Blocks.WATER),
+//                UniformInt.of(2, 8),
+//                4));
         FeatureUtils.register(context, LAKE_ACID, Feature.LAKE,
                 new LakeFeature.Configuration(BlockStateProvider.simple(ModFluids.ACID_FLUID.get().defaultFluidState().createLegacyBlock()),
                         BlockStateProvider.simple(ACID_DIRT.get().defaultBlockState())));

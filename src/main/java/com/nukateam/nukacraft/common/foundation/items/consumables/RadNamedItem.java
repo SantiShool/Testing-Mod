@@ -32,8 +32,6 @@ public class RadNamedItem extends ItemNameBlockItem {
         if (entity instanceof Player && !level.isClientSide) {
             RadiationUtils.addRadiation(entity, this.radiation);
 
-            if (stack.getItem() == ModFood.CRACKBERRY.get())
-                entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0, false, false));
             if (stack.getItem() == ModFood.XANDER_ROOT.get())
                 entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, false, false));
         }
