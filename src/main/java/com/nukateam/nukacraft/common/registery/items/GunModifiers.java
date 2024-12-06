@@ -352,7 +352,6 @@ public class GunModifiers {
 
         @Override
         public Set<FireMode> modifyFireModes(Set<FireMode> fireMode) {
-//            fireMode.add(FireMode.AUTO);
             return new HashSet(List.of(FireMode.AUTO));
         }
     };

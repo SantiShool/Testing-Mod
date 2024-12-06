@@ -195,6 +195,7 @@ public class ModWeapons {
 
 
     public static final RegistryObject<Item> MISSILE = registerAmmo("missile");
+    public static final RegistryObject<Item> MISSILE_MINI = registerAmmo("missile_mini");
 
     public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade", () ->
             new BaseGrenadeItem<>(new Item.Properties(), 20 * 4, ThrowableGrenadeEntity::new));
