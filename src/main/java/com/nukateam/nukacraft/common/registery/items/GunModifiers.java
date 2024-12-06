@@ -1,13 +1,30 @@
 package com.nukateam.nukacraft.common.registery.items;
 
+import com.nukateam.ntgl.Ntgl;
 import com.nukateam.ntgl.common.base.holders.FireMode;
 import com.nukateam.ntgl.common.base.holders.GripType;
+import com.nukateam.ntgl.common.foundation.item.attachment.impl.Scope;
 import com.nukateam.ntgl.common.util.interfaces.IGunModifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class GunModifiers {
+    public static final ResourceLocation SCOPE_LOCATION = new ResourceLocation(Ntgl.MOD_ID, "textures/hud/overlay/scope_long_overlay.png");
+
+    public static final Scope SHORT_SCOPE = Scope.builder().aimFovModifier(0.7F).reticleOffset(1.55F)
+            .viewFinderDistance(1.1).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOW_ADS).build();
+
+    public static final Scope MEDIUM_SCOPE = Scope.builder().aimFovModifier(0.5F).reticleOffset(1.625F)
+            .viewFinderDistance(1.0).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOW_ADS).build();
+
+    public static final Scope LONG_SCOPE = Scope.builder().aimFovModifier(0.25F).reticleOffset(1.4F)
+            .viewFinderDistance(1.4).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOWER_ADS).overlay(SCOPE_LOCATION).build();
+
     public static final IGunModifier SILENCED = new IGunModifier() {
         @Override
         public boolean silencedFire() {
@@ -313,6 +330,30 @@ public class GunModifiers {
         @Override
         public GripType modifyGripType(GripType gripType) {
             return GripType.TWO_HANDED;
+        }
+    };
+
+    public static final IGunModifier ML_DRUM = new IGunModifier() {
+        @Override
+        public int modifyMaxAmmo(int maxAmmo) {
+            return 4;
+        }
+    };
+    public static final IGunModifier ML_MAGAZINE = new IGunModifier() {
+        @Override
+        public int modifyFireRate(int rate) {
+            return 6;
+        }
+
+        @Override
+        public int modifyMaxAmmo(int maxAmmo) {
+            return 3;
+        }
+
+        @Override
+        public Set<FireMode> modifyFireModes(Set<FireMode> fireMode) {
+//            fireMode.add(FireMode.AUTO);
+            return new HashSet(List.of(FireMode.AUTO));
         }
     };
 

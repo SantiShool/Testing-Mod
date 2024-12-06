@@ -1,6 +1,6 @@
 package com.nukateam.nukacraft.common.foundation.blocks.blocks;
 
-import com.nukateam.example.common.util.interfaces.IExplosiveOnHit;
+import com.nukateam.ntgl.common.util.interfaces.IExplosiveOnHit;
 import com.nukateam.nukacraft.common.data.utils.VoxelShapeHelper;
 import com.nukateam.nukacraft.common.foundation.entities.blocks.OwnableBlockEntity;
 import com.nukateam.nukacraft.common.foundation.entities.misc.PowerArmorFrame;

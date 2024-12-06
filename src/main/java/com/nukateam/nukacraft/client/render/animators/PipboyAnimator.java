@@ -14,7 +14,7 @@ public class PipboyAnimator extends ItemAnimator implements IResourceProvider {
         super(transformType);
     }
 
-    public PipboyAnimator(ItemDisplayContext itemDisplayContext, DynamicGeoItemRenderer<PipboyAnimator> technicAnimatorGeoDynamicItemRenderer) {
+    public <Animator extends ItemAnimator> PipboyAnimator(ItemDisplayContext itemDisplayContext, DynamicGeoItemRenderer<Animator> animatorDynamicGeoItemRenderer) {
         super(itemDisplayContext);
     }
 

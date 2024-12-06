@@ -56,7 +56,7 @@
           ]
         }
       ],
-      "ntgl:stock": [
+      "ntgl:muzzle": [
         {
           "name": "muzzle2",
           "item": "nukacraft:stock_blade_missile"

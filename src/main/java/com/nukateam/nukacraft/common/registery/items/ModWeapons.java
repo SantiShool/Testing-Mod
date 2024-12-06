@@ -157,7 +157,6 @@ public class ModWeapons {
     public static final RegistryObject<GunItem> PIPE_PISTOL = registerGun("pipepistol");
     public static final RegistryObject<GunItem> CLASSIC10MM = registerGun("classic10mm");
     public static final RegistryObject<GunItem> SCOUT10MM = registerGun("scout10mm");
-    //public static final RegistryObject<GunItem> CLASSIC10MM_ZAP = registerGun("classic10mm_zapaway", () -> new PistolGun(new Item.Properties().tab(ModItemTabs.NUKA_EQUIP)));
     public static final RegistryObject<GunItem> PIPE_REVOLVER = registerGun("piperevolver");
     public static final RegistryObject<GunItem> FATMAN = registerGun("fatman");
     public static final RegistryObject<GunItem> MINIGUN = registerGun("minigun");
@@ -165,14 +164,14 @@ public class ModWeapons {
     public static final RegistryObject<GunItem> GATLING_LASER = registerGun("gatling_laser");
     public static final RegistryObject<GunItem> POWDERGUN = registerGun("powdergun");
     public static final RegistryObject<GunItem> SHOTGUN = registerGun("shotgun");
-    public static final RegistryObject<GunItem> MISSILE_LAUNCHER = registerGun("missile_launcher");
-
-    public static final RegistryObject<GunItem> TESLA_RIFLE = ITEMS.register("tesla_rifle", () -> new TeslaGun(new Item.Properties()));
     public static final RegistryObject<GunItem> LASER_RIFLE = registerGun("laser_rifle");
     public static final RegistryObject<GunItem> LASER_PISTOL = registerGun("laser_pistol");
     public static final RegistryObject<GunItem> CLASSIC_LASER_PISTOL = registerGun("classic_laser_pistol");
     public static final RegistryObject<GunItem> FLAMER = registerGun("flamer");
     public static final RegistryObject<GunItem> HANDMADE_FLAMER = registerGun("handmade_flamer");
+    //custom
+    public static final RegistryObject<GunItem> MISSILE_LAUNCHER = ITEMS.register("missile_launcher", () -> new MissileLauncher(new Item.Properties()));
+    public static final RegistryObject<GunItem> TESLA_RIFLE = ITEMS.register("tesla_rifle", () -> new TeslaGun(new Item.Properties()));
 
     ///MAGAZINES
     // public static final RegistryObject<Item> MAGAZINE1  = ITEMS.register("magazine_t1", () -> new MagazineItem(UnderBarrel.create(ExtraGunModifiers.MAGAZINES), new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));

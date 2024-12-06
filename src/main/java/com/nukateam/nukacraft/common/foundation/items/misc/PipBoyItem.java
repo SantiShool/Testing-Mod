@@ -3,16 +3,15 @@ package com.nukateam.nukacraft.common.foundation.items.misc;
 import com.nukateam.geo.interfaces.DynamicGeoItem;
 import com.nukateam.geo.render.DynamicGeoItemRenderer;
 import com.nukateam.ntgl.Ntgl;
+import com.nukateam.nukacraft.client.render.animators.PipboyAnimator;
 import com.nukateam.nukacraft.client.render.renderers.items.PipBoyRenderer;
 import com.nukateam.nukacraft.common.data.utils.PipBoyUtils;
 import com.nukateam.nukacraft.common.foundation.container.PipBoyMenu;
 import io.netty.buffer.Unpooled;
 import mod.azure.azurelib.animatable.GeoItem;
-import mod.azure.azurelib.animatable.client.RenderProvider;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.util.AzureLibUtil;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -26,6 +25,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
@@ -35,7 +35,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.function.Consumer;
+import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 import static com.jetug.chassis_core.common.foundation.item.StackUtils.getVariant;
@@ -60,6 +60,11 @@ public class PipBoyItem extends Item implements DynamicGeoItem {
     @Override
     public DynamicGeoItemRenderer getRenderer() {
         return RENDERER.get();
+    }
+
+    @Override
+    public BiFunction<ItemDisplayContext, DynamicGeoItemRenderer<PipboyAnimator>, PipboyAnimator> getAnimatorFactory() {
+        return  PipboyAnimator::new;
     }
 
     @Override

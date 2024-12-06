@@ -1,6 +1,6 @@
 package com.nukateam.nukacraft.common.foundation.blocks.blocks;
 
-import com.nukateam.example.common.util.interfaces.IExplosiveOnHit;
+import com.nukateam.ntgl.common.util.interfaces.IExplosiveOnHit;
 import com.nukateam.nukacraft.common.data.utils.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
