@@ -6,20 +6,10 @@
   ],
   "display": {
     "thirdperson_righthand": {
-      "rotation": [
-        0.06,
-        2.91,
-        -1.62
-      ],
       "translation": [
-        0.5,
-        7.75,
-        6.75
-      ],
-      "scale": [
-        1.27,
-        1.27,
-        1.27
+        0,
+        4.5,
+        2
       ]
     },
     "thirdperson_lefthand": {
@@ -31,7 +21,7 @@
     },
     "firstperson_righthand": {
       "translation": [
-        -4,
+        -2.5,
         8.5,
         5.75
       ]

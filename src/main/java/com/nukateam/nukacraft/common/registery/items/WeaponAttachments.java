@@ -1,10 +1,7 @@
 package com.nukateam.nukacraft.common.registery.items;
 
-import com.nukateam.ntgl.common.foundation.item.*;
-import com.nukateam.ntgl.common.foundation.item.attachment.impl.Barrel;
-import com.nukateam.ntgl.common.foundation.item.attachment.impl.Magazine;
-import com.nukateam.ntgl.common.foundation.item.attachment.impl.Stock;
-import com.nukateam.ntgl.common.foundation.item.attachment.impl.UnderBarrel;
+import com.nukateam.ntgl.common.data.attachment.impl.*;
+import com.nukateam.ntgl.common.foundation.item.attachment.*;
 import com.nukateam.nukacraft.NukaCraftMod;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,7 +31,7 @@ public class WeaponAttachments {
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PISTOL_SCOUT_SIGHT = ITEMS.register("pistol_scout_sight",
-            () -> new ScopeItem(GunModifiers.SHORT_SCOPE, new Item.Properties().stacksTo(1)));
+            () -> new ScopeItem(GunModifiers.MEDIUM_SCOPE, new Item.Properties().stacksTo(1)));
 
     /* Barrel Attachments */
     //@DataGen(path = "attachments")
@@ -73,7 +70,7 @@ public class WeaponAttachments {
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PISTOL_TACTICAL_GRIP = ITEMS.register("pistol_tactical_grip",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL1, GunModifiers.REDUCED_KICKING_LVL3),
-                    new Item.Properties().stacksTo(1), false));
+                    new Item.Properties().stacksTo(1)));
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PISTOL_WEIGHTED_GRIP = ITEMS.register("pistol_weighted_grip",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL3, GunModifiers.REDUCED_KICKING_LVL2),
@@ -103,7 +100,7 @@ public class WeaponAttachments {
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PIPE_TACTICAL_GRIP = ITEMS.register("pipe_tactical_grip",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL1,GunModifiers.TRANSFORM_CARBINE, GunModifiers.REDUCED_KICKING_LVL3),
-                    new Item.Properties().stacksTo(1), false));
+                    new Item.Properties().stacksTo(1)));
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PIPE_PISTOL_GRIP = ITEMS.register("pipe_pistol_grip",
@@ -117,11 +114,6 @@ public class WeaponAttachments {
     public static final RegistryObject<Item> PIPE_CARBINE_GRIP = ITEMS.register("pipe_carbine_grip",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL3,GunModifiers.TRANSFORM_CARBINE,
                     GunModifiers.REDUCED_KICKING_LVL1, GunModifiers.REDUCED_KICKING_LVL3), new Item.Properties().stacksTo(1)));
-
-
-
-
-
 
     /* Handmade Barrel Attachments */
     //@DataGen(path = "attachments")
@@ -238,7 +230,7 @@ public class WeaponAttachments {
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PUMP_TACTICAL_GRIP = ITEMS.register("pump_tactical_grip",
-            () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL1, GunModifiers.REDUCED_KICKING_LVL3), new Item.Properties().stacksTo(1), false));
+            () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL1, GunModifiers.REDUCED_KICKING_LVL3), new Item.Properties().stacksTo(1)));
 
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> PUMP_PISTOL_GRIP = ITEMS.register("pump_pistol_grip",
@@ -254,7 +246,7 @@ public class WeaponAttachments {
     /* Tesla Grip Attachments */
     //@DataGen(path = "attachments")
     public static final RegistryObject<Item> TESLA_TACTICAL_GRIP = ITEMS.register("tesla_tactical_grip",
-            () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_KICKING_LVL2), new Item.Properties().stacksTo(1), false));
+            () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_KICKING_LVL2), new Item.Properties().stacksTo(1)));
 
 
     /* Tesla Barrel Attachments */
@@ -354,10 +346,10 @@ public class WeaponAttachments {
                     new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> BARREL_EXTENDER_MISSILE = ITEMS.register("barrel_extender_missile",
-            () -> new StockItem(Stock.create(), new Item.Properties().stacksTo(1)));
+            () -> new MuzzleItem(GenericAttachment.create(), new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> STOCK_BLADE_MISSILE = ITEMS.register("muzzle_blade_missile",
-            () -> new StockItem(Stock.create(), new Item.Properties().stacksTo(1)));
+            () -> new MuzzleItem(GenericAttachment.create(), new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> STOCK_SHIELD = ITEMS.register("stock_shield",
             () -> new StockItem(Stock.create(GunModifiers.REDUCED_RECOIL_LVL2, GunModifiers.REDUCED_KICKING_LVL1), new Item.Properties().stacksTo(1)));

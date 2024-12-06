@@ -8,7 +8,7 @@
     "recoilAngle": 0.0,
     "alwaysSpread": true,
     "spread": 4.0,
-    "damage": 15.0,
+    "damage": 20.0,
     "ammo": [
       "nukacraft:missile"
     ]
@@ -39,6 +39,12 @@
     "clean"    : "nukacraft:missile_launcher_clean"
   },
   "modules": {
+    "zoom": {
+      "xOffset": 0.0,
+      "yOffset": 5.7,
+      "zOffset": 0.0,
+      "fovModifier": 0.7
+    },
     "attachments": {
       "ntgl:barrel": [
         {
@@ -59,7 +65,7 @@
       "ntgl:muzzle": [
         {
           "name": "muzzle2",
-          "item": "nukacraft:stock_blade_missile"
+          "item": "nukacraft:muzzle_blade_missile"
         },
         {
           "name": "muzzle1",
@@ -72,12 +78,8 @@
           "item": "nukacraft:auto_aim_module"
         },
         {
-          "name": "iron_sight",
-          "item": "nukacraft:pistol_iron_sight"
-        },
-        {
           "name": "optic_scope",
-          "item": "nukacraft:pistol_holographic_sight"
+          "item": "nukacraft:pistol_scout_sight"
         }
       ]
     }

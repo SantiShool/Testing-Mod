@@ -3,7 +3,7 @@ package com.nukateam.nukacraft.common.registery.items;
 import com.nukateam.ntgl.Ntgl;
 import com.nukateam.ntgl.common.base.holders.FireMode;
 import com.nukateam.ntgl.common.base.holders.GripType;
-import com.nukateam.ntgl.common.foundation.item.attachment.impl.Scope;
+import com.nukateam.ntgl.common.data.attachment.impl.*;
 import com.nukateam.ntgl.common.util.interfaces.IGunModifier;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -20,7 +20,7 @@ public class GunModifiers {
             .viewFinderDistance(1.1).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOW_ADS).build();
 
     public static final Scope MEDIUM_SCOPE = Scope.builder().aimFovModifier(0.5F).reticleOffset(1.625F)
-            .viewFinderDistance(1.0).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOW_ADS).build();
+            .viewFinderDistance(1.0).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOW_ADS).overlay(SCOPE_LOCATION).build();
 
     public static final Scope LONG_SCOPE = Scope.builder().aimFovModifier(0.25F).reticleOffset(1.4F)
             .viewFinderDistance(1.4).modifiers(com.nukateam.ntgl.common.base.GunModifiers.SLOWER_ADS).overlay(SCOPE_LOCATION).build();
@@ -342,7 +342,7 @@ public class GunModifiers {
     public static final IGunModifier ML_MAGAZINE = new IGunModifier() {
         @Override
         public int modifyFireRate(int rate) {
-            return 6;
+            return 5;
         }
 
         @Override
@@ -353,6 +353,11 @@ public class GunModifiers {
         @Override
         public Set<FireMode> modifyFireModes(Set<FireMode> fireMode) {
             return new HashSet(List.of(FireMode.AUTO));
+        }
+
+        @Override
+        public Set<ResourceLocation> modifyAmmoItems(Set<ResourceLocation> item) {
+            return new HashSet(List.of(ModWeapons.MISSILE_MINI));
         }
     };
 
