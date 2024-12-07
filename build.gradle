@@ -124,7 +124,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
 //    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven { url 'https://libs.azuredoom.com:4443/mods' }
+    maven { url 'https://maven.azuredoom.com/mods' }
     maven {
         name "Progwml6 maven"
         url "https://dvs1.progwml6.com/files/maven/"

@@ -347,7 +347,7 @@ public class GunModifiers {
 
         @Override
         public int modifyMaxAmmo(int maxAmmo) {
-            return 3;
+            return 6;
         }
 
         @Override
@@ -357,7 +357,7 @@ public class GunModifiers {
 
         @Override
         public Set<ResourceLocation> modifyAmmoItems(Set<ResourceLocation> item) {
-            return new HashSet(List.of(ModWeapons.MISSILE_MINI));
+            return new HashSet(List.of(ModWeapons.MISSILE_MINI.getId()));
         }
     };
 

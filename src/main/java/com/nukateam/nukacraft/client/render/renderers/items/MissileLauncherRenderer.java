@@ -25,7 +25,7 @@ public class MissileLauncherRenderer extends DynamicGunRenderer<MissileLauncherA
     public void render(LivingEntity entity, ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack,
                        @Nullable MultiBufferSource bufferSource, @Nullable RenderType renderType, @Nullable VertexConsumer buffer, int packedLight) {
         poseStack.pushPose();
-        poseStack.translate(0, /*InputEvents.Y / 16D*/ - 6,0);
+        poseStack.translate(0, /*InputEvents.Y / 16D*/ - 6 / 16D,0);
         super.render(entity, stack, transformType, poseStack, bufferSource, renderType, buffer, packedLight);
         poseStack.popPose();
     }
