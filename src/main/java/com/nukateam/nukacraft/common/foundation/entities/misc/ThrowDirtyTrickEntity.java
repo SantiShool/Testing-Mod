@@ -2,7 +2,6 @@ package com.nukateam.nukacraft.common.foundation.entities.misc;
 
 import com.nukateam.ntgl.common.foundation.entity.ThrowableGrenadeEntity;
 import com.nukateam.ntgl.common.foundation.entity.ThrowableItemEntity;
-import com.nukateam.nukacraft.common.foundation.entities.grenades.GrenadeUtils;
 import com.nukateam.nukacraft.common.registery.EntityTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,14 +13,11 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
-import static com.nukateam.nukacraft.common.registery.items.ModWeapons.BRAHMIN_DIRTY_TRICK;
-import static com.nukateam.nukacraft.common.registery.items.ModWeapons.GRENADE_FIRE;
+import static com.nukateam.nukacraft.common.registery.items.ModWeapons.GOO;
 
 public class ThrowDirtyTrickEntity extends ThrowableGrenadeEntity {
     public float rotation;
@@ -35,7 +31,7 @@ public class ThrowDirtyTrickEntity extends ThrowableGrenadeEntity {
         super(EntityTypes.DIRTY_TRICK_ENTITY.get(), world, entity);
         this.setShouldBounce(true);
         this.setGravityVelocity(0.05F);
-        this.setItem(new ItemStack(BRAHMIN_DIRTY_TRICK.get()));
+        this.setItem(new ItemStack(GOO.get()));
         this.setMaxLife(timeLeft);
     }
 

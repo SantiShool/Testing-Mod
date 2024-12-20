@@ -4,7 +4,7 @@
     "gripType": "ntgl:bazooka",
     "category": "heavy",
     "maxAmmo": 1,
-    "reloadTime": 120,
+    "reloadTime": 110,
     "recoilAngle": 0.0,
     "alwaysSpread": true,
     "spread": 4.0,
@@ -40,9 +40,9 @@
   },
   "modules": {
     "zoom": {
-      "xOffset": 0.0,
-      "yOffset": 5.7,
-      "zOffset": 0.0,
+      "xOffset": -2.0,
+      "yOffset": -0.3,
+      "zOffset": -4.9,
       "fovModifier": 0.7
     },
     "attachments": {
@@ -79,7 +79,10 @@
         },
         {
           "name": "optic_scope",
-          "item": "nukacraft:pistol_scout_sight"
+          "item": "nukacraft:pistol_scout_sight",
+          "xOffset": -3.4,
+          "yOffset": -1.2,
+          "zOffset": -5.3
         }
       ]
     }

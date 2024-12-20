@@ -328,7 +328,6 @@
   "item.nukacraft.punga_fruit": "Punga Fruit",
   "item.nukacraft.dandy_boy_apples": "Dandy Boy Apples",
   "item.nukacraft.cram": "Cram",
-  "item.nukacraft.brahmin_dirty_trick": "Brahmin Dirty Trick",
   "item.nukacraft.crackberry_seed": "Firecracker Berry Sapling",
   "item.nukacraft.bombberry_seed": "§aBombberry Sapling",
   "item.nukacraft.muttfruit_seed": "Muttfruit Sapling",
@@ -560,6 +559,8 @@
   "item.nukacraft.toxic_floater_grenade": "Toxic Floater Grenade",
 
   "item.nukacraft.missile": "Missile",
+  "item.nukacraft.missile_mini": "Mini Missile",
+  "item.nukacraft.brahmin_goo": "Goo",
   "item.nukacraft.grenade": "Grenade",
   "item.nukacraft.stun_grenade": "Stun Grenade",
   "item.nukacraft.fuel": "Fuel",

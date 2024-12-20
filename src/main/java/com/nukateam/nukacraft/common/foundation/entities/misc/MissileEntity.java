@@ -19,12 +19,15 @@ import net.minecraft.world.phys.Vec3;
 import static com.nukateam.nukacraft.client.helpers.ExplosionUtils.createNuclearExplosion;
 
 public class MissileEntity extends ProjectileEntity {
+    private float radius = 1;
+
     public MissileEntity(EntityType<? extends ProjectileEntity> entityType, Level worldIn) {
         super(entityType, worldIn);
     }
 
-    public MissileEntity(EntityType<? extends ProjectileEntity> entityType, Level worldIn, LivingEntity shooter, ItemStack weapon, GunItem item, Gun modifiedGun) {
+    public MissileEntity(EntityType<? extends ProjectileEntity> entityType, Level worldIn, LivingEntity shooter, ItemStack weapon, GunItem item, Gun modifiedGun, float radius) {
         super(entityType, worldIn, shooter, weapon, item, modifiedGun);
+        this.radius = radius;
     }
 
     @Override
@@ -41,8 +44,7 @@ public class MissileEntity extends ProjectileEntity {
     }
 
     private void explode() {
-
-        createExplosion(this, 6f, false);
+        createExplosion(this, radius, false);
     }
 
     @Override

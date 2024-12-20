@@ -4,7 +4,6 @@ import com.nukateam.ntgl.common.foundation.entity.StunGrenadeEntity;
 import com.nukateam.ntgl.common.foundation.entity.ThrowableGrenadeEntity;
 import com.nukateam.ntgl.common.foundation.init.ModSounds;
 import com.nukateam.ntgl.common.foundation.item.AmmoItem;
-import com.nukateam.ntgl.common.foundation.item.GrenadeItem;
 import com.nukateam.ntgl.common.foundation.item.GunItem;
 import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.data.annotation.DataGen;
@@ -19,7 +18,6 @@ import com.nukateam.nukacraft.common.foundation.items.misc.SimpleDiggerItem;
 import com.nukateam.nukacraft.common.foundation.items.misc.SimpleMeleeWeapon;
 import com.nukateam.nukacraft.common.foundation.items.misc.SpearItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -193,8 +191,8 @@ public class ModWeapons {
 //    public static final RegistryObject<Item> HANDMADE_FLASHER  = ITEMS.register("handmade_flashhider", () -> new BarrelItem(Barrel.create(2, ExtraGunModifiers.HANDMADE_FLASHER), new Item.Properties().stacksTo(1)));
 
 
-
     public static final RegistryObject<Item> MISSILE = registerAmmo("missile");
+
     public static final RegistryObject<Item> MISSILE_MINI = registerAmmo("missile_mini");
 
     public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade", () ->
@@ -212,7 +210,7 @@ public class ModWeapons {
     public static final RegistryObject<Item> GRENADE_FIRE_FLOATER = ITEMS.register("flame_floater_grenade", () ->
             new BaseGrenadeItem<>(new Item.Properties(), 25 * 4, FlameFloaterGrenadeEntity::new));
 
-    public static final RegistryObject<Item> BRAHMIN_DIRTY_TRICK = ITEMS.register("brahmin_dirty_trick", () ->
+    public static final RegistryObject<Item> GOO = ITEMS.register("brahmin_goo", () ->
             new DirtyTrickItem<>(new Item.Properties(), 25 * 4, ThrowDirtyTrickEntity::new));
 
     public static final RegistryObject<Item> GRENADE_TOXIC_FLOATER = ITEMS.register("toxic_floater_grenade", () ->

@@ -338,6 +338,12 @@ public class GunModifiers {
         public int modifyMaxAmmo(int maxAmmo) {
             return 4;
         }
+
+        @Override
+        public int modifyReloadTime(int reloadTime) {
+            return 70;
+        }
+
     };
     public static final IGunModifier ML_MAGAZINE = new IGunModifier() {
         @Override
@@ -348,6 +354,11 @@ public class GunModifiers {
         @Override
         public int modifyMaxAmmo(int maxAmmo) {
             return 6;
+        }
+
+        @Override
+        public int modifyReloadTime(int reloadTime) {
+            return 60;
         }
 
         @Override

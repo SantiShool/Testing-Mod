@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "nukacraft:item/goo"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "nukacraft:item/goo_icon"
+    },
+    "ground": {
+      "parent": "nukacraft:item/goo_icon"
+    },
+    "fixed": {
+      "parent": "nukacraft:item/goo_icon"
+    }
+  }
+}

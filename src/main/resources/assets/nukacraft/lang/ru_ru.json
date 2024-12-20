@@ -610,6 +610,8 @@
   "item.nukacraft.mirelurk_egg": "Яйцо Болотника",
   "item.nukacraft.mirelurk_eggshell": "Скорлупа Яйца Болотника",
   "item.nukacraft.missile": "Ракета",
+  "item.nukacraft.missile_mini": "Мини Ракета",
+  "item.nukacraft.brahmin_goo": "Пакость",
   "item.nukacraft.molerat_leather": "Шкура Кротокрыса",
   "item.nukacraft.molerat_teeth": "Зубы Кротокрыса",
   "item.nukacraft.mutshootfungus": "Светящийся Гриб Мутострел",
@@ -943,5 +945,15 @@
   "tooltip.nukacraft.jumpboost" : "§9Прыгучесть ",
   "tooltip.nukacraft.radiation": "§cРад ",
   "tooltip.nukacraft.regen": "§9Регенерация ",
-  "tooltip.nukacraft.tea_thistle": "§7Он неприятен на вкус, однако притупляет голод"
+  "tooltip.nukacraft.tea_thistle": "§7Он неприятен на вкус, однако притупляет голод",
+  "item.nukacraft.handmade_spear": "Handmade Spear",
+  "item.nukacraft.brahmin_goo": "Goo",
+  "block.nukacraft.blood_leaf": "Bloodleaf Bush",
+  "block.nukacraft.gbloodleaf": "Gammaleaf Bush",
+  "biome.nukacraft:poison_valley": "Poison Valley",
+  "effect.nukacraft.blinded": "Blinded",
+  "effect.nukacraft.deafened": "Deafened",
+  "gui.nukacraft.marker.tomb": "Here lies %s",
+  "key.open_map": "Open map",
+  "entity.nukacraft.power_armor_frame": ""
 }

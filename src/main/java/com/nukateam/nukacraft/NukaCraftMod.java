@@ -1,5 +1,6 @@
 package com.nukateam.nukacraft;
 
+import com.google.common.collect.Maps;
 import com.mojang.logging.LogUtils;
 import com.nukateam.ntgl.common.base.utils.ProjectileManager;
 import com.nukateam.ntgl.common.foundation.entity.ContinuousLaserProjectile;
@@ -19,6 +20,9 @@ import com.nukateam.nukacraft.common.registery.*;
 import com.nukateam.nukacraft.common.registery.fluid.ModFluidTypes;
 import com.nukateam.nukacraft.common.registery.fluid.ModFluids;
 import com.nukateam.nukacraft.common.registery.items.*;
+import mod.azure.azurelib.renderer.GeoArmorRenderer;
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +40,7 @@ import top.theillusivec4.curios.api.SlotTypePreset;
 
 import static com.nukateam.ntgl.common.foundation.init.Projectiles.*;
 import static com.nukateam.nukacraft.common.foundation.world.ModBiomes.setupBiomeSettings;
+import static com.nukateam.nukacraft.common.foundation.world.WastelandDimensionsSettings.WASTELAND;
 import static com.nukateam.nukacraft.common.registery.ModProjectiles.ASSAULTRON_LASER_PROJECTILE;
 
 //Приходит улитка в бар, а там java классы в нарды играют...
@@ -104,9 +109,14 @@ public class NukaCraftMod {
         ProjectileManager.getInstance().registerFactory(ModWeapons.MININUKE.get(),
                 (level, entity, weapon, item, modifiedGun) ->
                         new MiniNukeEntity(EntityTypes.MININUKE.get(), level, entity, weapon, item, modifiedGun));
+
         ProjectileManager.getInstance().registerFactory(ModWeapons.MISSILE.get(),
                 (level, entity, weapon, item, modifiedGun) ->
-                        new MissileEntity(EntityTypes.MISSILE.get(), level, entity, weapon, item, modifiedGun));
+                        new MissileEntity(EntityTypes.MISSILE.get(), level, entity, weapon, item, modifiedGun, 6f));
+
+        ProjectileManager.getInstance().registerFactory(ModWeapons.MISSILE_MINI.get(),
+                (level, entity, weapon, item, modifiedGun) ->
+                        new MissileEntity(EntityTypes.MISSILE.get(), level, entity, weapon, item, modifiedGun, 3f));
 
         ProjectileManager.getInstance().registerFactory(ModWeapons.FUSION_CELL.get(),
                 (level, entity, weapon, item, modifiedGun) -> {

@@ -1,8 +1,8 @@
 {
 	"credit": "NukaTeam's Work",
 	"textures": {
-		"0": "nukacraft:item/dirty_trick",
-		"particle": "nukacraft:item/dirty_trick"
+		"0": "nukacraft:item/goo",
+		"particle": "nukacraft:item/brahmin_goo"
 	},
 	"elements": [
 		{
