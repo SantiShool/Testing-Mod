@@ -348,7 +348,7 @@ public class GunModifiers {
     public static final IGunModifier ML_MAGAZINE = new IGunModifier() {
         @Override
         public int modifyFireRate(int rate) {
-            return 5;
+            return 4;
         }
 
         @Override

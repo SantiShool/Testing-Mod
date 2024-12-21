@@ -9,11 +9,11 @@ import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.data.annotation.DataGen;
 import com.nukateam.nukacraft.common.foundation.ModTiers;
 import com.nukateam.nukacraft.common.foundation.entities.grenades.*;
-import com.nukateam.nukacraft.common.foundation.entities.misc.ThrowDirtyTrickEntity;
+import com.nukateam.nukacraft.common.foundation.entities.misc.ThrowGooEntity;
 import com.nukateam.nukacraft.common.foundation.entities.misc.ToxicFloaterGrenadeEntity;
 import com.nukateam.nukacraft.common.foundation.items.frame.FusionCoreItem;
 import com.nukateam.nukacraft.common.foundation.items.guns.*;
-import com.nukateam.nukacraft.common.foundation.items.misc.DirtyTrickItem;
+import com.nukateam.nukacraft.common.foundation.items.misc.GooItem;
 import com.nukateam.nukacraft.common.foundation.items.misc.SimpleDiggerItem;
 import com.nukateam.nukacraft.common.foundation.items.misc.SimpleMeleeWeapon;
 import com.nukateam.nukacraft.common.foundation.items.misc.SpearItem;
@@ -211,7 +211,7 @@ public class ModWeapons {
             new BaseGrenadeItem<>(new Item.Properties(), 25 * 4, FlameFloaterGrenadeEntity::new));
 
     public static final RegistryObject<Item> GOO = ITEMS.register("brahmin_goo", () ->
-            new DirtyTrickItem<>(new Item.Properties(), 25 * 4, ThrowDirtyTrickEntity::new));
+            new GooItem<>(new Item.Properties(), 25 * 4, ThrowGooEntity::new));
 
     public static final RegistryObject<Item> GRENADE_TOXIC_FLOATER = ITEMS.register("toxic_floater_grenade", () ->
             new BaseGrenadeItem<>(new Item.Properties(), 25 * 4, ToxicFloaterGrenadeEntity::new));

@@ -19,16 +19,16 @@ import net.minecraft.world.phys.HitResult;
 
 import static com.nukateam.nukacraft.common.registery.items.ModWeapons.GOO;
 
-public class ThrowDirtyTrickEntity extends ThrowableGrenadeEntity {
+public class ThrowGooEntity extends ThrowableGrenadeEntity {
     public float rotation;
     public float prevRotation;
 
-    public ThrowDirtyTrickEntity(EntityType<? extends ThrowableItemEntity> entityType, Level worldIn) {
+    public ThrowGooEntity(EntityType<? extends ThrowableItemEntity> entityType, Level worldIn) {
         super(entityType, worldIn);
     }
 
-    public ThrowDirtyTrickEntity(Level world, LivingEntity entity, int timeLeft) {
-        super(EntityTypes.DIRTY_TRICK_ENTITY.get(), world, entity);
+    public ThrowGooEntity(Level world, LivingEntity entity, int timeLeft) {
+        super(EntityTypes.GOO_ENTITY.get(), world, entity);
         this.setShouldBounce(true);
         this.setGravityVelocity(0.05F);
         this.setItem(new ItemStack(GOO.get()));

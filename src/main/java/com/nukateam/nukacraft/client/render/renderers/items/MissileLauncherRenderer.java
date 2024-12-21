@@ -39,11 +39,16 @@ public class MissileLauncherRenderer extends DynamicGunRenderer<MissileLauncherA
     }
 
     @Override
-    public void renderRecursively(PoseStack poseStack, MissileLauncherAnimator animatable, GeoBone bone,
+    public void renderRecursivelyPost(PoseStack poseStack, MissileLauncherAnimator animatable, GeoBone bone,
                                   RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer,
                                   boolean isReRender, float partialTick, int packedLight, int packedOverlay,
                                   float red, float green, float blue, float alpha) {
         var bonesToHide = new ArrayList<String>();
+
+//        if (bone.getName().equals("missile1")) {
+//            bone.setHidden(true);
+//        }
+
 
         switch (currentAmmo){
             case 3 -> {
@@ -59,17 +64,14 @@ public class MissileLauncherRenderer extends DynamicGunRenderer<MissileLauncherA
                 bonesToHide.addAll(Arrays.asList("missile1", "missile2", "missile3", "missile4"));
             }
         }
+//
+//        for (var name : bonesToHide) {
+//            if (bone.getName().equals(name)) {
+//                bone.setHidden(true);
+//            }
+//        }
 
-        for (var name : bonesToHide) {
-            if (bone.getName().equals(name)) {
-                bone.setHidden(true);
-            }
-        }
-
-//        hide(bone, bonesToHide);
-
-        super.renderRecursively(poseStack, animatable, bone, renderType, bufferSource, buffer, isReRender,
-                partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+        hide(bone, bonesToHide);
     }
 
     private static void hide(GeoBone bone, ArrayList names) {

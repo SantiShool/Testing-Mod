@@ -20,20 +20,14 @@ import java.util.function.BiFunction;
 import static net.minecraft.world.entity.EntityType.Builder;
 
 public class EntityTypes {
-
-
-
-
-
-
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES
             = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, NukaCraftMod.MOD_ID);
 
     public static final RegistryObject<EntityType<BaseballGrenadeEntity>> BASEBALL_GRENADE_ENTITY =
             registerBasic("baseball_grenade_entity", BaseballGrenadeEntity::new);
 
-    public static final RegistryObject<EntityType<ThrowDirtyTrickEntity>> DIRTY_TRICK_ENTITY =
-            registerBasic("dirty_trick_entity", ThrowDirtyTrickEntity::new);
+    public static final RegistryObject<EntityType<ThrowGooEntity>> GOO_ENTITY =
+            registerBasic("goo_entity", ThrowGooEntity::new);
 
     public static final RegistryObject<EntityType<MolotovEntity>> COCKTAIL_MOLOTOV_ENTITY =
             registerBasic("cocktail_molotov_entity", MolotovEntity::new);

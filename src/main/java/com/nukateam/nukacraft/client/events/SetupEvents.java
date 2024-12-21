@@ -11,7 +11,6 @@ import com.nukateam.nukacraft.client.render.renderers.block.GearDoorRenderer;
 import com.nukateam.nukacraft.client.render.renderers.block.OpenGearRenderer;
 import com.nukateam.nukacraft.client.render.renderers.block.PowerAmorStationRenderer;
 import com.nukateam.nukacraft.client.render.renderers.entity.*;
-import com.nukateam.nukacraft.client.render.renderers.items.SpearRenderer;
 import com.nukateam.nukacraft.client.render.renderers.projectile.*;
 import com.nukateam.nukacraft.common.data.constants.PipboyPages;
 import com.nukateam.nukacraft.common.registery.ModTileEntities;
@@ -65,7 +64,7 @@ public class SetupEvents {
         event.registerEntityRenderer(HOLY_GRENADE_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(FIRE_GRENADE_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(DYNAMITE_STICK_ENTITY.get(), ThrowableGrenadeRenderer::new);
-        event.registerEntityRenderer(DIRTY_TRICK_ENTITY.get(), ThrowableGrenadeRenderer::new);
+        event.registerEntityRenderer(GOO_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(FIRE_FLOATER_GRENADE_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(TOXIC_FLOATER_GRENADE_ENTITY.get(), ThrowableGrenadeRenderer::new);
         event.registerEntityRenderer(POWER_ARMOR_FRAME.get(), PowerArmorRenderer::new);
