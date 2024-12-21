@@ -2,9 +2,7 @@ package com.nukateam.nukacraft.common.foundation.items.misc;
 
 import com.jetug.chassis_core.common.foundation.item.StackUtils;
 import com.nukateam.ntgl.common.foundation.item.GunItem;
-import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.foundation.items.frame.ArmorPart;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
@@ -14,20 +12,34 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 import java.util.Objects;
 
-public class PaintjobItem extends Item {
-    private final String paintjob;
-    public PaintjobItem(String paintjob, Properties pProperties) {
+import static com.nukateam.nukacraft.common.data.constants.Nbt.CLEAN;
+
+public class PaintJobItem extends Item {
+    private final String paintId;
+    public PaintJobItem(String paintId, Properties pProperties) {
         super(pProperties);
-        this.paintjob = paintjob;
+        this.paintId = paintId;
     }
     @Override
     public boolean overrideStackedOnOther(ItemStack pStack, Slot pSlot, ClickAction pAction, Player pPlayer) {
-        ItemStack slotItem = pSlot.getItem();
-        boolean isPaintable = (slotItem.getItem() instanceof ArmorPart || slotItem.getItem() instanceof GunItem || slotItem.getItem() instanceof PipBoyItem);
+        var slotItem = pSlot.getItem();
+//        var isGun = slotItem.getItem() instanceof GunItem gunItem
+//                && gunItem.getModifiedGun(stack).getTextures().containsKey(CLEAN);
+//        var isArmor = slotItem.getItem() instanceof ArmorPart armorPart
+//                && armorPart.getConfig().getTexture(CLEAN) != null;
+//        var isPaintable = isArmor || isGun;
+//        var isNotClean = !(Objects.equals(StackUtils.getVariant(slotItem), CLEAN));
+//
+
+        var isPaintable = (
+                slotItem.getItem() instanceof ArmorPart ||
+                slotItem.getItem() instanceof GunItem ||
+                slotItem.getItem() instanceof PipBoyItem);
+
         if (pAction == ClickAction.SECONDARY) {
 
-            if (isPaintable && (Objects.equals(StackUtils.getVariant(slotItem), "clean"))) {
-                StackUtils.setVariant(slotItem, paintjob);
+            if (isPaintable && (Objects.equals(StackUtils.getVariant(slotItem), CLEAN))) {
+                StackUtils.setVariant(slotItem, paintId);
                 if(!pPlayer.isCreative()) {
                     if (pStack.getDamageValue() == 12)
                         pStack.shrink(1);

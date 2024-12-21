@@ -95,52 +95,52 @@ public class ModItems {
             () -> new RepairKitItem(500, new Item.Properties().durability(5000)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_BLACK = ITEMS.register("bucket_black",
-            () -> new PaintjobItem("black", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("black", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_BROWN = ITEMS.register("bucket_brown",
-            () -> new PaintjobItem("brown", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("brown", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_CYAN = ITEMS.register("bucket_cyan",
-            () -> new PaintjobItem("cyan", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("cyan", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_GREEN = ITEMS.register("bucket_green",
-            () -> new PaintjobItem("green", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("green", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_BLUE = ITEMS.register("bucket_blue",
-            () -> new PaintjobItem("blue", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("blue", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_GRAY = ITEMS.register("bucket_gray",
-            () -> new PaintjobItem("gray", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("gray", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_LIGHT_GRAY = ITEMS.register("bucket_light_gray",
-            () -> new PaintjobItem("light_gray", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("light_gray", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_LIGHT_BLUE = ITEMS.register("bucket_light_blue",
-            () -> new PaintjobItem("light_blue", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("light_blue", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_LIME = ITEMS.register("bucket_lime",
-            () -> new PaintjobItem("lime", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("lime", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_MAGENTA = ITEMS.register("bucket_magenta",
-            () -> new PaintjobItem("magenta", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("magenta", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_ORANGE = ITEMS.register("bucket_orange",
-            () -> new PaintjobItem("orange", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("orange", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_PINK = ITEMS.register("bucket_pink",
-            () -> new PaintjobItem("pink", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("pink", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_PURPLE = ITEMS.register("bucket_purple",
-            () -> new PaintjobItem("purple", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("purple", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_RED = ITEMS.register("bucket_red",
-            () -> new PaintjobItem("red", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("red", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_WHITE = ITEMS.register("bucket_white",
-            () -> new PaintjobItem("white", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("white", new Item.Properties().durability(12)));
     @DataGen
     public static final RegistryObject<Item> BUCKET_YELLOW = ITEMS.register("bucket_yellow",
-            () -> new PaintjobItem("yellow", new Item.Properties().durability(12)));
+            () -> new PaintJobItem("yellow", new Item.Properties().durability(12)));
 
     @DataGen
     public static final RegistryObject<Item> SCRAP = ITEMS.register("scrap",
