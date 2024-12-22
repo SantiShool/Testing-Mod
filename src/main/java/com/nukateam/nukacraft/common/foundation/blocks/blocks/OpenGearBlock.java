@@ -151,9 +151,9 @@ public class OpenGearBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void setPlacedBy(Level pLevel, BlockPos pos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+    public void setPlacedBy(Level pLevel, BlockPos pos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack stack) {
         filledEraser(pLevel, pState, pos.getX(), pos.getY(), pos.getZ());
-        super.setPlacedBy(pLevel, pos, pState, pPlacer, pStack);
+        super.setPlacedBy(pLevel, pos, pState, pPlacer, stack);
     }
 
     @Override

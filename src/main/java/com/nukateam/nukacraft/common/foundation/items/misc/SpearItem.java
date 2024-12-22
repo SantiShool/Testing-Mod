@@ -48,12 +48,12 @@ public class SpearItem extends SwordItem implements Vanishable, GeoAnimatable, G
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack pStack) {
+    public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.SPEAR;
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
+    public int getUseDuration(ItemStack stack) {
         return USE_DURATION;
     }
 
@@ -85,13 +85,13 @@ public class SpearItem extends SwordItem implements Vanishable, GeoAnimatable, G
     }
 
     @Override
-    public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
+    public void releaseUsing(ItemStack stack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player player) {
-            int useDuration = this.getUseDuration(pStack) - pTimeLeft;
+            int useDuration = this.getUseDuration(stack) - pTimeLeft;
             if (useDuration >= 10) {
                 if (!pLevel.isClientSide) {
-                    pStack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
-                    var spearEntity = new SpearEntity(pLevel, player, pStack);
+                    stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
+                    var spearEntity = new SpearEntity(pLevel, player, stack);
                     spearEntity.shootFromRotation(player,
                             player.getXRot(),
                             player.getYRot(),
@@ -106,7 +106,7 @@ public class SpearItem extends SwordItem implements Vanishable, GeoAnimatable, G
                     pLevel.playSound(null, spearEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 
                     if (!player.getAbilities().instabuild)
-                        player.getInventory().removeItem(pStack);
+                        player.getInventory().removeItem(stack);
                 }
 
                 player.awardStat(Stats.ITEM_USED.get(this));

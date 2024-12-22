@@ -82,11 +82,11 @@ public class BasicStorageBlock extends BarrelBlock {
         return new BasicStorageEntity(pPos, pState);
     }
 
-    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-        if (pStack.hasCustomHoverName()) {
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack stack) {
+        if (stack.hasCustomHoverName()) {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof BasicStorageEntity) {
-                ((BasicStorageEntity) blockentity).setCustomName(pStack.getHoverName());
+                ((BasicStorageEntity) blockentity).setCustomName(stack.getHoverName());
             }
         }
 

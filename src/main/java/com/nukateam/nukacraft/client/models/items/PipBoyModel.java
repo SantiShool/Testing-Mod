@@ -5,6 +5,7 @@ import com.nukateam.ntgl.client.model.IGlowingModel;
 import com.nukateam.nukacraft.client.render.animators.PipboyAnimator;
 import com.nukateam.nukacraft.common.foundation.items.misc.PipBoyItem;
 import mod.azure.azurelib.model.GeoModel;
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 
 import static com.nukateam.nukacraft.common.data.utils.Resources.nukaResource;
@@ -18,6 +19,7 @@ public class PipBoyModel extends GeoModel<PipboyAnimator> implements IGlowingMod
     @Override
     public ResourceLocation getTextureResource(PipboyAnimator pipBoyItem) {
         var variant = StackUtils.getVariant(pipBoyItem.getStack());
+
         return nukaResource("textures/item/pipboy/pipboy2000_" + variant + ".png");
     }
 

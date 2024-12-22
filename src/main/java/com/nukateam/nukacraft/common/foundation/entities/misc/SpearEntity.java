@@ -37,9 +37,9 @@ public class SpearEntity extends AbstractArrow implements GeoAnimatable {
         this.handmadeSpearItem = new ItemStack(ModWeapons.HANDMADE_SPEAR.get());
     }
 
-    public SpearEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+    public SpearEntity(Level pLevel, LivingEntity pShooter, ItemStack stack) {
         super(EntityTypes.HANDMADE_SPEAR_ENTITY.get(), pShooter, pLevel);
-        this.handmadeSpearItem = pStack.copy();
+        this.handmadeSpearItem = stack.copy();
     }
 
     @Override

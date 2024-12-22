@@ -13,8 +13,8 @@ public class SteelBowlItem extends BowlFoodItem {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-        ItemStack itemstack = super.finishUsingItem(pStack, pLevel, pEntityLiving);
+    public ItemStack finishUsingItem(ItemStack stack, Level pLevel, LivingEntity pEntityLiving) {
+        ItemStack itemstack = super.finishUsingItem(stack, pLevel, pEntityLiving);
         return pEntityLiving instanceof Player && ((Player) pEntityLiving).getAbilities().instabuild ? itemstack : new ItemStack(ModItems.STEELBOWL.get());
     }
 }

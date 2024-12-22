@@ -19,7 +19,7 @@ public class AbraxoCleanerItem extends Item {
     }
 
     @Override
-    public boolean overrideStackedOnOther(ItemStack pStack, Slot pSlot, ClickAction pAction, Player pPlayer) {
+    public boolean overrideStackedOnOther(ItemStack stack, Slot pSlot, ClickAction pAction, Player pPlayer) {
         ItemStack slotItem = pSlot.getItem();
         boolean isPaintable = (slotItem.getItem() instanceof PipBoyItem);
         //boolean isPaintable = (slotItem.getItem() instanceof ArmorPart || slotItem.getItem() instanceof GunItem);
@@ -27,12 +27,12 @@ public class AbraxoCleanerItem extends Item {
             if (isPaintable && !(Objects.equals(StackUtils.getVariant(slotItem), "clean"))) {
                 StackUtils.setVariant(slotItem, "clean");
                 if(!pPlayer.isCreative())
-                    pStack.shrink(1);
+                    stack.shrink(1);
                 return true;
             }
 //            if (isPaintable && !(Objects.equals(((PipBoyItem) slotItem.getItem()).getVariant(), "clean"))) {
 //                ((PipBoyItem) slotItem.getItem()).setVariant("clean");
-//                pStack.shrink(1);
+//                stack.shrink(1);
 //                return true;
 //            }
         }

@@ -130,8 +130,8 @@ public class Raider extends PathfinderMob implements IGunUser {
     }
 
 //    @Override
-//    public boolean canHoldItem(ItemStack pStack) {
-//        return pStack.getItem() instanceof GunItem;
+//    public boolean canHoldItem(ItemStack stack) {
+//        return stack.getItem() instanceof GunItem;
 //    }
 
     @Override

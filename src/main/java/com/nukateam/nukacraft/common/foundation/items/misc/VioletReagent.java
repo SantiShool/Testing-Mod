@@ -30,7 +30,7 @@ public class VioletReagent extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack pStack) {
+    public boolean isFoil(ItemStack stack) {
         return true;
     }
 }

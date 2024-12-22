@@ -76,7 +76,7 @@ public class LandMineBlock extends BaseEntityBlock implements IExplosiveOnHit {
     }
 
     @Override
-    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack stack) {
         if (pPlacer instanceof Player player) {
             var uuid = player.getGameProfile().getId().toString();
             var entity = pLevel.getBlockEntity(pPos);
@@ -84,7 +84,7 @@ public class LandMineBlock extends BaseEntityBlock implements IExplosiveOnHit {
             if (entity instanceof OwnableBlockEntity ownable)
                 ownable.setOwner(uuid);
         }
-        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+        super.setPlacedBy(pLevel, pPos, pState, pPlacer, stack);
     }
 
     @Override

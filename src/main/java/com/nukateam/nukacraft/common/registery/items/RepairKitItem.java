@@ -24,44 +24,44 @@ public class RepairKitItem extends Item {
         this.repairPerClick = repairPerClick;
     }
     @Override
-    public boolean overrideStackedOnOther(ItemStack pStack, Slot pSlot, ClickAction pAction, Player pPlayer) {
+    public boolean overrideStackedOnOther(ItemStack stack, Slot pSlot, ClickAction pAction, Player pPlayer) {
         ItemStack slotItem = pSlot.getItem();
         int targetDamage = slotItem.getDamageValue();
-        int kitDurability = pStack.getMaxDamage() - pStack.getDamageValue();
+        int kitDurability = stack.getMaxDamage() - stack.getDamageValue();
         if (pAction == ClickAction.SECONDARY) {
             if (slotItem.getItem() instanceof ArmorPart || slotItem.getItem() instanceof SimpleMeleeWeapon || slotItem.getItem() instanceof ArmorItem) {
                 if (!(Screen.hasControlDown())) {
                     if (kitDurability >= repairPerClick) {
                         if (targetDamage <= repairPerClick) {
-                            pStack.setDamageValue(pStack.getDamageValue() + targetDamage);
+                            stack.setDamageValue(stack.getDamageValue() + targetDamage);
                             slotItem.setDamageValue(slotItem.getDamageValue() - targetDamage);
                             return false;
                         } else {
-                            pStack.setDamageValue(pStack.getDamageValue() + repairPerClick);
+                            stack.setDamageValue(stack.getDamageValue() + repairPerClick);
                             slotItem.setDamageValue(slotItem.getDamageValue() - repairPerClick);
                             return false;
                         }
                     } else {
                         if (targetDamage <= kitDurability) {
-                            pStack.setDamageValue(pStack.getDamageValue() + targetDamage);
+                            stack.setDamageValue(stack.getDamageValue() + targetDamage);
                             slotItem.setDamageValue(slotItem.getDamageValue() - targetDamage);
                             return false;
                         } else {
-                            pStack.setDamageValue(pStack.getDamageValue() + kitDurability);
+                            stack.setDamageValue(stack.getDamageValue() + kitDurability);
                             slotItem.setDamageValue(slotItem.getDamageValue() - kitDurability);
-                            pStack.shrink(1);
+                            stack.shrink(1);
                             return false;
                         }
                     }
                 } else {
                     if (targetDamage <= kitDurability) {
-                        pStack.setDamageValue(pStack.getDamageValue() + targetDamage);
+                        stack.setDamageValue(stack.getDamageValue() + targetDamage);
                         slotItem.setDamageValue(slotItem.getDamageValue() - targetDamage);
                         return false;
                     } else {
-                        pStack.setDamageValue(pStack.getDamageValue() + kitDurability);
+                        stack.setDamageValue(stack.getDamageValue() + kitDurability);
                         slotItem.setDamageValue(slotItem.getDamageValue() - kitDurability);
-                        pStack.shrink(1);
+                        stack.shrink(1);
                         return false;
                     }
                 }
@@ -71,7 +71,7 @@ public class RepairKitItem extends Item {
         return false;
     }
     @Override
-    public boolean isEnchantable(ItemStack pStack) {
+    public boolean isEnchantable(ItemStack stack) {
         return false;
     }
 
