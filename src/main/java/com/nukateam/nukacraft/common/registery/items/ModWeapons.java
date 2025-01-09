@@ -168,8 +168,8 @@ public class ModWeapons {
     public static final RegistryObject<GunItem> FLAMER = registerGun("flamer");
     public static final RegistryObject<GunItem> HANDMADE_FLAMER = registerGun("handmade_flamer");
     //custom
-    public static final RegistryObject<GunItem> MISSILE_LAUNCHER = ITEMS.register("missile_launcher", () -> new MissileLauncher(new Item.Properties()));
-    public static final RegistryObject<GunItem> TESLA_RIFLE = ITEMS.register("tesla_rifle", () -> new TeslaGun(new Item.Properties()));
+    public static final RegistryObject<GunItem> MISSILE_LAUNCHER = ITEMS.register("missile_launcher", () -> new MissileLauncher(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<GunItem> TESLA_RIFLE = ITEMS.register("tesla_rifle", () -> new TeslaGun(new Item.Properties().stacksTo(1)));
 
     ///MAGAZINES
     // public static final RegistryObject<Item> MAGAZINE1  = ITEMS.register("magazine_t1", () -> new MagazineItem(UnderBarrel.create(ExtraGunModifiers.MAGAZINES), new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
