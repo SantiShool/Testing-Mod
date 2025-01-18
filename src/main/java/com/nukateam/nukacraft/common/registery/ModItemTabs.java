@@ -1,5 +1,6 @@
 package com.nukateam.nukacraft.common.registery;
 
+import com.nukateam.ntgl.common.util.helpers.RegistrationHelper;
 import com.nukateam.nukacraft.NukaCraftMod;
 import com.nukateam.nukacraft.common.data.enums.PowerArmorPart;
 import com.nukateam.nukacraft.common.registery.items.*;
@@ -57,19 +58,19 @@ public class ModItemTabs {
     }
 
     private static void getWeaponTab(ItemDisplayParameters itemDisplayParameters, Output output) {
-        registerItems(output, ModWeapons.ITEMS);
+        registerGuns(output, ModWeapons.ITEMS);
         registerItems(output, WeaponAttachments.ITEMS);
     }
-
-//    public static final RegistryObject<CreativeModeTab> POWER_ARMOR = CREATIVE_MODE_TABS.register("power_armor",
-//            () -> builder().icon(() -> new ItemStack(PowerArmorItems.T45_SET.get(PowerArmorPart.HELMET).get()))
-//                    .title(Component.translatable("itemGroup.power_armor"))
-//                    .displayItems((params, output) -> registerItems(output, PowerArmorItems.ITEMS))
-//                    .build());
 
     private static void registerItems(Output output, DeferredRegister<Item> register) {
         for (var entry : register.getEntries()) {
             output.accept(entry.get());
+        }
+    }
+
+    private static void registerGuns(Output output, DeferredRegister<Item> register) {
+        for (var entry : register.getEntries()) {
+            RegistrationHelper.registerGunOrDefault(output, entry.get());
         }
     }
 

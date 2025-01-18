@@ -9,14 +9,13 @@ import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 import java.util.Objects;
 
 import static com.nukateam.nukacraft.common.data.constants.Nbt.CLEAN;
 
 public class IndustrialAbraxoItem extends Item {
-
-
     public IndustrialAbraxoItem(Properties pProperties) {
         super(pProperties);
     }
