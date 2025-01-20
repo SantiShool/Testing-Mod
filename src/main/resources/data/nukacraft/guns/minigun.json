@@ -10,6 +10,7 @@
     "reloadTime": 80,
     "reloadAmount": 10,
     "recoilAngle": 1.0,
+    "recoilKick": 0.2,
     "damage": 5.0,
     "alwaysSpread": true,
     "spread": 6.0,
