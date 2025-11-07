@@ -10,6 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -27,6 +28,8 @@ public class ModBiomes {
     public static final ResourceKey<Biome> ASH_HEAP = createKey("ash_heap");
     public static final ResourceKey<Biome> CRANBERRY_BOG = createKey("cranberry_bog");
     public static final ResourceKey<Biome> SAVAGE_DIVIDE = createKey("savage_divide");
+    public static final ResourceKey<Biome> TOXIC_OCEAN = createKey("toxic_ocean");
+    public static final ResourceKey<Biome> GLOWING_DEPTHS = createKey("glowing_depths");
 
     private static final HashMap<ResourceKey<Biome>, BiomeSettings> biomeSettings = new HashMap<>();
 
@@ -38,7 +41,9 @@ public class ModBiomes {
         context.register(CRANBERRY_BOG  , createCranberryBog(placedFeatures, worldCarvers));
         context.register(ASH_HEAP       , createAshHeap(placedFeatures, worldCarvers));
         context.register(GLOW_SEA       , createGlowSea(placedFeatures, worldCarvers));
-        context.register(SAVAGE_DIVIDE       , createSavageDivide(placedFeatures, worldCarvers));
+        context.register(SAVAGE_DIVIDE  , createSavageDivide(placedFeatures, worldCarvers));
+        context.register(TOXIC_OCEAN    , createToxicOcean(placedFeatures, worldCarvers));
+        context.register(GLOWING_DEPTHS , createGlowingDepths(placedFeatures, worldCarvers));
 //        BiomeSettings
     }
 
@@ -47,7 +52,9 @@ public class ModBiomes {
         biomeSettings.put(CRANBERRY_BOG , new BiomeSettings().setFogDensity(1.0f));
         biomeSettings.put(ASH_HEAP      , new BiomeSettings().setFogDensity(0.5f));
         biomeSettings.put(GLOW_SEA      , new BiomeSettings().setFogDensity(0.05f));
-        biomeSettings.put(SAVAGE_DIVIDE      , new BiomeSettings().setFogDensity(1.0f));
+        biomeSettings.put(SAVAGE_DIVIDE , new BiomeSettings().setFogDensity(1.0f));
+        biomeSettings.put(TOXIC_OCEAN   , new BiomeSettings().setFogDensity(0.2f));
+        biomeSettings.put(GLOWING_DEPTHS, new BiomeSettings().setFogDensity(0.1f));
     }
 
     @Nullable
@@ -73,121 +80,7 @@ public class ModBiomes {
                 .grassColorOverride(-861768)
                 .build();
 
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.ASH_GRASS);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.POISON_GRASS);
-
-
-        ModDefaultFeatures.addPoisonValleyOres(biomeBuilder);
-
-        ModDefaultFeatures.addAshTrees(biomeBuilder);
-        ModDefaultFeatures.addAshStone(biomeBuilder);
-        ModDefaultFeatures.addAcidLake(biomeBuilder);
-        ModDefaultFeatures.addPoisonValleyPlants(biomeBuilder);
-
-        return (new Biome.BiomeBuilder())
-                .hasPrecipitation(true)
-                .temperature(0.5f)
-                .downfall(0.5f)
-                .specialEffects(effects)
-                .mobSpawnSettings(mobBuilder.build())
-                .generationSettings(biomeBuilder.build())
-                .build();
-    }
-
-    private static Biome createSavageDivide(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
-        var mobBuilder = new MobSpawnSettings.Builder();
-        //var settingsd = (IBiomeSettings)placedFeatures;
-
-        var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        var effects = new BiomeSpecialEffects.Builder()
-                .fogColor(-10990522)
-                .waterColor(-11386816)
-                .waterFogColor(-11386816)
-                .skyColor(16246715)
-                .foliageColorOverride(-861668)
-                .grassColorOverride(-861668)
-                .build();
-
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.STRANGE_GRASS);
-
-        ModDefaultFeatures.addSavageDivideOres(biomeBuilder);
-
-        ModDefaultFeatures.addImmortalGreenTrees(biomeBuilder);
-        ModDefaultFeatures.addCommonBerryBush(biomeBuilder);
-        ModDefaultFeatures.addRustyTrees(biomeBuilder);
-        BiomeDefaultFeatures.addBadlandGrass(biomeBuilder);
-        BiomeDefaultFeatures.addTaigaGrass(biomeBuilder);
-        BiomeDefaultFeatures.addSavannaExtraGrass(biomeBuilder);
-        BiomeDefaultFeatures.addMossyStoneBlock(biomeBuilder);
-
-//        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.ASH_GRASS);
-//        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.POISON_GRASS);
-//
-
-
-//        ModDefaultFeatures.addAshStone(biomeBuilder);
-//        ModDefaultFeatures.addAcidLake(biomeBuilder);
-//        ModDefaultFeatures.addPoisonValleyPlants(biomeBuilder);
-
-        return (new Biome.BiomeBuilder())
-                .hasPrecipitation(true)
-                .temperature(0.7f)
-                .downfall(0.4f)
-                .specialEffects(effects)
-                .mobSpawnSettings(mobBuilder.build())
-                .generationSettings(biomeBuilder.build())
-                .build();
-    }
-
-    private static void createBiomeSettings(Biome biome, BiomeSettings settings){
-    }
-
-    private static Biome createCranberryBog(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
-        var mobBuilder = new MobSpawnSettings.Builder();
-        var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        var effects = new BiomeSpecialEffects.Builder()
-                .fogColor(-10990522)
-                .waterColor(-11386816)
-                .waterFogColor(-11590620)
-                .skyColor(-3024201)
-                .foliageColorOverride(-6797754)
-                .grassColorOverride(-7714230)
-                .build();
-
-        mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.RADROACH.get(), 1, 1, 1));
-        mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.BLOATFLY.get(), 1, 1, 1));
-        mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.BRAHMIN.get(), 1, 1, 1));
-
-        ModDefaultFeatures.addCranberryBogOres(biomeBuilder);
-
-        ModDefaultFeatures.addDewdropTrees(biomeBuilder);
-        BiomeDefaultFeatures.addSwampClayDisk(biomeBuilder);
-        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
-
-        ModDefaultFeatures.addCranBerryBogPlants(biomeBuilder);
-
-        return (new Biome.BiomeBuilder())
-                .hasPrecipitation(true)
-                .temperature(0.8F)
-                .downfall(0.9F)
-                .specialEffects(effects)
-                .mobSpawnSettings(mobBuilder.build())
-                .generationSettings(biomeBuilder.build())
-                .build();
-    }
-
-    private static Biome createGlowSea(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
-        var mobBuilder = new MobSpawnSettings.Builder();
-        var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        var effects = new BiomeSpecialEffects.Builder()
-                .fogColor(16766566)
-                .waterColor(3882546)
-                .waterFogColor(2308637)
-                .skyColor(16246715)
-                .foliageColorOverride(9076070)
-                .grassColorOverride(9076070)
-                .build();
-
+        @@ -191,50 +198,123 @@ public class ModBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.GRASS_ASH);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.GLOW_GRASS);
 
@@ -208,34 +101,107 @@ public class ModBiomes {
                 .temperature(1.5f)
                 .downfall(0.9f).specialEffects(effects)
                 .mobSpawnSettings(mobBuilder.build())
-                .generationSettings(biomeBuilder.build())
-                .build();
-    }
+                    .generationSettings(biomeBuilder.build())
+                    .build();
+        }
 
 
-    private static Biome createAshHeap(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
-        var mobBuilder = new MobSpawnSettings.Builder();
-        var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        var effects = new BiomeSpecialEffects.Builder()
-                .fogColor(-10990522)
-                .waterColor(-9551310)
-                .waterFogColor(11648455)
-                .skyColor(-10990522)
-                .foliageColorOverride(-10465466)
-                .grassColorOverride(-11187642)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.SMOKE, 0.0219f))
-                .build();
+        private static Biome createToxicOcean(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
+            var mobBuilder = new MobSpawnSettings.Builder();
+            mobBuilder.addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 10, 1, 4));
+            mobBuilder.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.COD, 8, 3, 6));
+            mobBuilder.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 1, 5));
+            mobBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 5, 1, 1));
+            var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+            var effects = new BiomeSpecialEffects.Builder()
+                    .fogColor(14016607)
+                    .waterColor(6040415)
+                    .waterFogColor(2697513)
+                    .skyColor(11965448)
+                    .foliageColorOverride(4076355)
+                    .grassColorOverride(4867391)
+                    .build();
 
-        ModDefaultFeatures.addAshHeapOres(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultSeagrass(biomeBuilder);
+            BiomeDefaultFeatures.addOceanKelp(biomeBuilder);
+            ModDefaultFeatures.addGlowSeaOres(biomeBuilder);
 
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.GRASS_ASH);
-        ModDefaultFeatures.addAshHeapTrees(biomeBuilder);
+            return (new Biome.BiomeBuilder())
+                    .hasPrecipitation(true)
+                    .temperature(0.5f)
+                    .downfall(0.8f)
+                    .biomeCategory(Biome.BiomeCategory.OCEAN)
+                    .specialEffects(effects)
+                    .mobSpawnSettings(mobBuilder.build())
+                    .generationSettings(biomeBuilder.build())
+                    .build();
+        }
 
-        mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.RADROACH.get(), 1, 1, 1));
-        mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.BLOATFLY.get(), 1, 1, 1));
+        private static Biome createGlowingDepths(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
+            var mobBuilder = new MobSpawnSettings.Builder();
+            mobBuilder.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 8, 1, 5));
+            mobBuilder.addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 3, 1, 2));
+            mobBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 2, 1, 1));
+            var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+            var effects = new BiomeSpecialEffects.Builder()
+                    .fogColor(10592377)
+                    .waterColor(2109727)
+                    .waterFogColor(1441535)
+                    .skyColor(6579300)
+                    .foliageColorOverride(2368548)
+                    .grassColorOverride(3410186)
+                    .ambientParticle(new AmbientParticleSettings(ParticleTypes.GLOW, 0.002f))
+                    .build();
 
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.HEAP_GRASS);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.RUSTY_BUSH);
+            BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultSeagrass(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+            BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
+            ModDefaultFeatures.addGlowSeaOres(biomeBuilder);
+
+            return (new Biome.BiomeBuilder())
+                    .hasPrecipitation(true)
+                    .temperature(0.5f)
+                    .downfall(0.6f)
+                    .biomeCategory(Biome.BiomeCategory.RIVER)
+                    .specialEffects(effects)
+                    .mobSpawnSettings(mobBuilder.build())
+                    .generationSettings(biomeBuilder.build())
+                    .build();
+        }
+
+        private static Biome createAshHeap(HolderGetter<PlacedFeature> placedFeatures, HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
+            var mobBuilder = new MobSpawnSettings.Builder();
+            var biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+            var effects = new BiomeSpecialEffects.Builder()
+                    .fogColor(-10990522)
+                    .waterColor(-9551310)
+                    .waterFogColor(11648455)
+                    .skyColor(-10990522)
+                    .foliageColorOverride(-10465466)
+                    .grassColorOverride(-11187642)
+                    .ambientParticle(new AmbientParticleSettings(ParticleTypes.SMOKE, 0.0219f))
+                    .build();
+
+            ModDefaultFeatures.addAshHeapOres(biomeBuilder);
+
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.GRASS_ASH);
+            ModDefaultFeatures.addAshHeapTrees(biomeBuilder);
+
+            mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.RADROACH.get(), 1, 1, 1));
+            mobBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityTypes.BLOATFLY.get(), 1, 1, 1));
+
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.HEAP_GRASS);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.RUSTY_BUSH);
 
 
         ModDefaultFeatures.addAshHeapDisks(biomeBuilder);
