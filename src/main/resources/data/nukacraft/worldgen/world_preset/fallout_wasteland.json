@@ -8,26 +8,26 @@
           "type": "minecraft:multi_noise",
           "biomes": [
             {
-              "biome": "nukacraft:glowing_depths",
+              "biome": "nukacraft:irradiated_ocean",
               "parameters": {
-                "temperature": 0.3,
-                "humidity": 0.4,
-                "continentalness": -0.15,
-                "erosion": 0.1,
+                "temperature": 0.5,
+                "humidity": 0.0,
+                "continentalness": -0.80,
+                "erosion": 0.0,
                 "weirdness": 0.0,
-                "depth": -0.2,
+                "depth": -1.0,
                 "offset": 0.0
               }
             },
             {
-              "biome": "nukacraft:toxic_ocean",
+              "biome": "nukacraft:irradiated_river",
               "parameters": {
                 "temperature": 0.5,
                 "humidity": 0.0,
-                "continentalness": -0.8,
-                "erosion": 0.0,
+                "continentalness": -0.12,
+                "erosion": 0.1,
                 "weirdness": 0.0,
-                "depth": -1.0,
+                "depth": -0.25,
                 "offset": 0.0
               }
             },
@@ -36,7 +36,7 @@
               "parameters": {
                 "temperature": 0.2,
                 "humidity": 0.0,
-                "continentalness": 0.1,
+                "continentalness": 0.10,
                 "erosion": 0.0,
                 "weirdness": 0.0,
                 "depth": 0.0,
@@ -60,7 +60,7 @@
               "parameters": {
                 "temperature": 0.4,
                 "humidity": 0.0,
-                "continentalness": 0.2,
+                "continentalness": 0.20,
                 "erosion": 0.0,
                 "weirdness": 0.0,
                 "depth": 0.1,
@@ -90,10 +90,22 @@
                 "depth": 0.2,
                 "offset": 0.0
               }
+            },
+            {
+              "biome": "nukacraft:glowing_depths",
+              "parameters": {
+                "temperature": 0.3,
+                "humidity": 0.4,
+                "continentalness": -0.15,
+                "erosion": 0.1,
+                "weirdness": 0.0,
+                "depth": -0.2,
+                "offset": 0.0
+              }
             }
           ]
         },
-        "settings": "minecraft:overworld"
+        "settings": "nukacraft:fallout_wasteland_noise"
       }
     }
   }
