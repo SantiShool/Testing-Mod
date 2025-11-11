@@ -125,9 +125,9 @@ public class WastelandBiomeBuilder {
         // Offshore shelf/islands (leave as Poison Valley for now)
         this.addSurfaceBiome(out, FULL_RANGE, FULL_RANGE, mushroomFieldsContinentalness, FULL_RANGE, FULL_RANGE, 0.0F, ModBiomes.POISON_VALLEY);
 
-        // Deep ocean and ocean bands — use our irradiated ocean
-        this.addSurfaceBiome(out, FULL_RANGE, FULL_RANGE, deepOceanContinentalness, FULL_RANGE, FULL_RANGE, 0.0F, ModBiomes.IRRADIATED_OCEAN);
-        this.addSurfaceBiome(out, FULL_RANGE, FULL_RANGE, oceanContinentalness,     FULL_RANGE, FULL_RANGE, 0.0F, ModBiomes.IRRADIATED_OCEAN);
+        // Deep ocean and ocean bands — use our toxic ocean
+        this.addSurfaceBiome(out, FULL_RANGE, FULL_RANGE, deepOceanContinentalness, FULL_RANGE, FULL_RANGE, 0.0F, ModBiomes.TOXIC_OCEAN);
+        this.addSurfaceBiome(out, FULL_RANGE, FULL_RANGE, oceanContinentalness,     FULL_RANGE, FULL_RANGE, 0.0F, ModBiomes.TOXIC_OCEAN);
     }
 
     private void addInlandBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> c) {

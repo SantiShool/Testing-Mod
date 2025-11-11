@@ -45,6 +45,7 @@ public class WastelandSurfaceRule {
                 SurfaceRules.verticalGradient("deepslate", VerticalAnchor.absolute(0), VerticalAnchor.absolute(8)),
                 DEEPSLATE));
 
+        // Land: Poison Valley
         SurfaceRules.RuleSource poisonValleySurface = SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(ModBiomes.POISON_VALLEY),
                 SurfaceRules.sequence(
@@ -53,32 +54,33 @@ public class WastelandSurfaceRule {
                 )
         );
 
-        SurfaceRules.RuleSource irradiatedOceanSurface = SurfaceRules.ifTrue(
-                SurfaceRules.isBiome(ModBiomes.IRRADIATED_OCEAN),
+        // Ocean: use your existing toxic_ocean instead of toxic_ocean
+        SurfaceRules.RuleSource toxicOceanSurface = SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(ModBiomes.TOXIC_OCEAN), // <-- make sure this key matches your registry name "nukacraft:toxic_ocean"
                 SurfaceRules.sequence(
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, OCEAN_FLOOR),
                         SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, OCEAN_UNDER)
                 )
         );
 
-        SurfaceRules.RuleSource irradiatedRiverSurface = SurfaceRules.ifTrue(
-                SurfaceRules.isBiome(ModBiomes.IRRADIATED_RIVER),
-                SurfaceRules.sequence(
-                        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, RIVER_FLOOR),
-                        SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, RIVER_UNDER)
-                )
-        );
+        // (TEMP) Remove irradiated river until it actually exists
+        // SurfaceRules.RuleSource irradiatedRiverSurface = ...
 
+        // Apply biome-specific surfaces above the preliminary surface
         SurfaceRules.RuleSource applyBiomes = SurfaceRules.ifTrue(
                 SurfaceRules.abovePreliminarySurface(),
                 SurfaceRules.sequence(
-                        irradiatedOceanSurface,
-                        irradiatedRiverSurface,
+                        toxicOceanSurface,
+                        // irradiatedRiverSurface, // (disabled)
                         poisonValleySurface
                 )
         );
 
         builder.add(applyBiomes);
+
+        // FINAL FALLBACK (applies wherever no biome-specific rule matched)
+        builder.add(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, LAND_TOP));
+        builder.add(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, LAND_FILL));
 
         return SurfaceRules.sequence(builder.build().toArray(SurfaceRules.RuleSource[]::new));
     }

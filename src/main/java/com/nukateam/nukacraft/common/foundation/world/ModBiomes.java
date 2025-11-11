@@ -22,7 +22,7 @@ import java.util.HashMap;
 import static com.nukateam.nukacraft.common.data.utils.Resources.nukaResource;
 
 public class ModBiomes {
-    public static final ResourceKey<Biome> IRRADIATED_OCEAN = createKey("irradiated_ocean");
+    public static final ResourceKey<Biome> TOXIC_OCEAN = createKey("toxic_ocean");
     public static final ResourceKey<Biome> IRRADIATED_RIVER = createKey("irradiated_river");
     public static final ResourceKey<Biome> POISON_VALLEY = createKey("poison_valley");
     public static final ResourceKey<Biome> GLOW_SEA = createKey("glow_sea");
@@ -45,7 +45,7 @@ public class ModBiomes {
     }
 
     public static void setupBiomeSettings() {
-        biomeSettings.put(IRRADIATED_OCEAN , new BiomeSettings().setFogDensity(0.5f));
+        biomeSettings.put(TOXIC_OCEAN , new BiomeSettings().setFogDensity(0.5f));
         biomeSettings.put(IRRADIATED_RIVER , new BiomeSettings().setFogDensity(1.0f));
         biomeSettings.put(POISON_VALLEY , new BiomeSettings().setFogDensity(1.0f));
         biomeSettings.put(CRANBERRY_BOG , new BiomeSettings().setFogDensity(1.0f));
@@ -64,7 +64,7 @@ public class ModBiomes {
         return null;
     }
 
-    private static Biome createIrradiatedOcean(HolderGetter<PlacedFeature> placedFeatures,
+    private static Biome createToxicOcean(HolderGetter<PlacedFeature> placedFeatures,
                                                HolderGetter<ConfiguredWorldCarver<?>> worldCarvers) {
         var mobBuilder = new MobSpawnSettings.Builder();
 
